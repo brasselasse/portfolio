@@ -9,6 +9,8 @@ delivered: Idé, varumärke, design, Webflow, CMS, SEO, innehåll, drift
 url: https://www.aimonkey.se
 cover: /img/aimonkey-omslag.webp
 coverAlt: AImonkeys startsida på dator och mobil
+seoTitle: "AImonkey – svensk AI-guide byggd i Webflow"
+seoDescription: "Case: AImonkey, en svensk guide till AI med promptgenerator. Idé, design, bygge i Webflow, SEO och drift – 15 gånger fler visningar i Google på ett halvår."
 order: 1
 flagship: true
 chart: aimonkey-search

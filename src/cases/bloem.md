@@ -9,6 +9,8 @@ delivered: "Struktur, bildurval, design, Webflow, e-handel med Stripe, orderflö
 url: "https://www.bloem.se"
 cover: /img/bloem-omslag.webp
 coverAlt: "Bloems startsida på dator och mobil"
+seoTitle: "Bloem – e-handel i Webflow för florist"
+seoDescription: "Case: Bloem gick från kontaktsida till blomsterbutik online med Webflow, Stripe och Airtable. Etta på Google för ”blommor till event”."
 order: 4
 stats:
   - { value: "1", label: "på google för ”blommor till event”" }

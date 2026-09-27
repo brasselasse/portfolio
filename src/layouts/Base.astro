@@ -15,9 +15,10 @@ interface Props {
   description?: string;
   image?: string;
   current?: 'case' | 'tjanster' | 'om';
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[]; // strukturerad data (schema.org)
 }
-const { title, description = SITE.description, image = '/img/aimonkey-omslag.webp', current } = Astro.props;
-const pageTitle = title ? `${title} – ${SITE.name}` : SITE.title;
+const { title, description = SITE.description, image = SITE.image, current, jsonLd } = Astro.props;
+const pageTitle = title ? `${title} | ${SITE.name}` : SITE.title;
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const ogImage = new URL(url(image), Astro.site);
 ---
@@ -36,7 +37,13 @@ const ogImage = new URL(url(image), Astro.site);
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={SITE.name} />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="sitemap" href={url('/sitemap.xml')} />
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
     <meta name="theme-color" content="#F4F2EE" />
     <script is:inline>document.documentElement.classList.add('js');</script>
   </head>

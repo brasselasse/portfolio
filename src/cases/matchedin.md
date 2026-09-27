@@ -9,6 +9,8 @@ delivered: "Struktur, design i Figma, bygge i Webflow, CMS för insikter"
 url: "https://www.matchedin.se"
 cover: /img/matchedin-omslag.webp
 coverAlt: "Matchedins startsida på dator och mobil"
+seoTitle: "Matchedin – webbdesign i Webflow"
+seoDescription: "Case: lekfull men professionell Webflow-sajt för Matchedin, med två vägar in – för arbetssökande och arbetsgivare. 83 % fler klick från Google."
 order: 5
 stats:
   - { value: "+83 %", label: "klick från google, maj–sep jämfört med året innan" }

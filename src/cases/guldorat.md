@@ -9,6 +9,8 @@ delivered: "Struktur, design i Figma, Webflow, CMS, säsongsstyrd startsida, sch
 url: "https://www.guldorat.se"
 cover: /img/guldorat-omslag.webp
 coverAlt: "Guldörats startsida på dator och mobil"
+seoTitle: "Guldörat – eventsajt i Webflow med CMS"
+seoDescription: "Case: sajt i Webflow för radio- och poddpriset Guldörat, med ett CMS som följer årshjulet. 85 600 klick från Google på 16 månader."
 order: 3
 chart: guldorat-search
 stats:

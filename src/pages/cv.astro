@@ -11,8 +11,28 @@ const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replac
 const ph = (s: string) => esc(s).replace(/\[([^\]]+)\]/g, '<span class="todo">[$1]</span>');
 const caseBySlug = Object.fromEntries(cases.map((c) => [c.slug, c]));
 const hasEmail = !SITE.email.startsWith('[');
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  url: new URL(url('/cv/'), Astro.site).href,
+  inLanguage: 'sv',
+  mainEntity: {
+    '@type': 'Person',
+    name: SITE.name,
+    jobTitle: 'Produktägare och designer',
+    url: new URL(url('/'), Astro.site).href,
+    image: new URL(url('/img/lars-dahlberg-portratt.webp'), Astro.site).href,
+    sameAs: [SITE.linkedin],
+    worksFor: { '@type': 'Organization', name: 'Viaplay Group Radio' },
+    alumniOf: [
+      { '@type': 'CollegeOrUniversity', name: 'Berghs School of Communication' },
+      { '@type': 'CollegeOrUniversity', name: 'Edith Cowan University' },
+      { '@type': 'CollegeOrUniversity', name: 'Hawaii Pacific University' },
+    ],
+  },
+};
 ---
-<Base title="CV" description={`CV för ${SITE.name}, ${SITE.role.toLowerCase()}. Erfarenhet, kompetenser och utvalda case.`} image="/img/lars-dahlberg-portratt.webp">
+<Base title="CV – produktägare och webbdesigner" description={`CV för ${SITE.name}: närmare 20 år som produktägare och designer, med tidslinje över sajter, utmärkelser och case.`} image="/img/og/cv.jpg" jsonLd={jsonLd}>
   <section class="wrap cv-hero">
     <div class="cv-hero-text">
       <nav class="crumb" aria-label="Brödsmulor"><a href={url('/')}>start</a> <span class="sig">|</span> cv</nav>

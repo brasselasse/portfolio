@@ -9,6 +9,8 @@ delivered: "B2B-sajt i Webflow, Radiopedia, SEO"
 url: "https://annonsera.viaplayradio.se"
 cover: /img/viaplay-omslag.webp
 coverAlt: "Viaplay Group Radios sida om radioreklam på dator och mobil"
+seoTitle: "Viaplay Group Radio – B2B-sajt och SEO"
+seoDescription: "Case: B2B-sajt för Viaplay Group Radio med ordlistan Radiopedia. Byggd i Webflow och rankar etta–tvåa på Google för ”radioreklam”."
 order: 2
 stats:
   - { value: "1–2", label: "på google för ”radioreklam”" }

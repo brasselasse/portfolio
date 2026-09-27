@@ -3,6 +3,7 @@ import Base from '../../layouts/Base.astro';
 import SearchChart from '../../components/SearchChart.astro';
 import { cases } from '../../lib/cases';
 import { url } from '../../lib/url';
+import { SITE } from '../../config';
 
 export function getStaticPaths() {
   return cases.map((c, i) => ({
@@ -18,8 +19,23 @@ const { data, Content } = c;
 
 const charts = import.meta.glob('../../data/*.json', { eager: true, import: 'default' });
 const chartData = data.chart ? (charts[`../../data/${data.chart}.json`] as any) : null;
+
+const pageUrl = new URL(url(`/case/${c.slug}/`), Astro.site).href;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'CreativeWork',
+  name: data.headline,
+  headline: data.headline,
+  description: data.seoDescription ?? data.summary,
+  url: pageUrl,
+  image: new URL(url(data.cover), Astro.site).href,
+  dateCreated: /^\d{4}$/.test(String(data.year)) ? String(data.year) : undefined,
+  inLanguage: 'sv',
+  creator: { '@type': 'Person', name: SITE.name, url: new URL(url('/'), Astro.site).href },
+  ...(data.url ? { about: { '@type': 'WebSite', url: data.url, name: data.title } } : {}),
+};
 ---
-<Base title={data.title} description={data.summary} image={data.cover} current="case">
+<Base title={data.seoTitle ?? data.title} description={data.seoDescription ?? data.summary} image={`/img/og/${c.slug}.jpg`} current="case" jsonLd={jsonLd}>
   <section class="wrap case-hero">
     <nav class="crumb" aria-label="Brödsmulor">
       <a href={url('/#case')}>case</a> <span class="sig">|</span> {data.title.toLowerCase()} <span class="sig">|</span> {data.type}

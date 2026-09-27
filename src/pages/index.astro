@@ -18,8 +18,40 @@ const offers = [
   ['Uppföljning & vidareutveckling', 'Mätning, förbättringar och nya sidor efter lansering – sajten ska bli bättre över tid.'],
 ];
 const steps = ['analys', 'identitet', 'bygge', 'seo', 'utvärdering'];
+
+const home = new URL(url('/'), Astro.site).href;
+const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${home}#person`,
+    name: SITE.name,
+    jobTitle: SITE.role,
+    url: home,
+    image: new URL(url('/img/lars-dahlberg-portratt.webp'), Astro.site).href,
+    email: SITE.email.startsWith('[') ? undefined : `mailto:${SITE.email}`,
+    sameAs: [SITE.linkedin],
+    knowsAbout: ['Webbdesign', 'Webflow', 'Grafisk identitet', 'SEO', 'UX', 'Produktägarskap'],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ProfessionalService',
+    name: `${SITE.name} – webbdesign och Webflow`,
+    url: home,
+    description: SITE.description,
+    image: new URL(url(SITE.image), Astro.site).href,
+    founder: { '@id': `${home}#person` },
+    areaServed: { '@type': 'Country', name: 'Sverige' },
+    knowsLanguage: ['sv', 'en'],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Tjänster',
+      itemListElement: offers.map(([name, description]) => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name, description } })),
+    },
+  },
+];
 ---
-<Base>
+<Base jsonLd={jsonLd}>
   <section class="wrap hero" id="top">
     <span class="lbl">digital art director <span class="sig">|</span> webbdesign <span class="sig">|</span> webflow <span class="sig">|</span> seo</span>
     <div class="h-wm" role="img" aria-label="Lars Dahlberg">
