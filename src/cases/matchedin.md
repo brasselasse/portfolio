@@ -3,9 +3,9 @@ title: "Matchedin"
 headline: "Matchedin – vägen till arbete, för både kandidater och arbetsgivare."
 summary: "Matchedin matchar människor som står längre från arbetsmarknaden med arbetsgivare som behöver ny kompetens. Sajten skulle sammanfatta verksamheten och sälja in den – lekfull, men professionell."
 type: "frilansuppdrag"
-year: "[år]"
-role: "[din roll, t.ex. projektledning, design i Figma, bygge i Webflow]"
-delivered: "[vad du levererade, t.ex. struktur, design, Webflow, texter]"
+year: "2024"
+role: "Projektledning, design i Figma, bygge i Webflow"
+delivered: "Struktur, design i Figma, bygge i Webflow, CMS för insikter"
 url: "https://www.matchedin.se"
 cover: /img/matchedin-omslag.webp
 coverAlt: "Matchedins startsida på dator och mobil"
@@ -35,6 +35,6 @@ Sajten delar tidigt upp besökarna i två vägar – en för kandidater och en f
 
 ## Resultatet
 
-Sajten syns allt bättre. Mellan maj och september 2026 kom 83 procent fler klick från Google än samma period året innan, och snittpositionen i sökresultaten har gått från runt 50 till 32. Den som söker på Matchedin hittar rätt direkt – företaget ligger etta på sitt eget namn.
+Sajten lanserades i november 2024 och syns allt bättre. Mellan maj och september 2026 kom 83 procent fler klick från Google än samma period året innan, och snittpositionen i sökresultaten har gått från runt 50 till 32. Den som söker på Matchedin hittar rätt direkt – företaget ligger etta på sitt eget namn.
 
 Artiklarna under Insikter bidrar: intervjuer och berättelser från kandidater och arbetsgivare drar egen trafik och ger besökaren fler skäl att stanna.
