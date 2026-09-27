@@ -3,7 +3,7 @@ title: "Guldörat"
 headline: "Guldörat – en sajt som följer årshjulet."
 summary: "Sajt för Sveriges radio- och poddpris och Guldöratdagen. Den byter fokus med säsongen – anmälan, röstning, biljetter, program – och ska kännas lika stor och ärofylld som galan."
 type: "frilansuppdrag"
-year: "[år]"
+year: "2025"
 role: "[din roll, t.ex. design, CMS-struktur och bygge i Webflow]"
 delivered: "Struktur, design, CMS, säsongsstyrd startsida, schema för Guldöratdagen"
 url: "https://www.guldorat.se"
@@ -22,6 +22,8 @@ Guldörat är ingen sajt som står still. Den lever i ett årshjul, och besökar
 - **Kvällen samma dag** – galan med prisutdelning.
 
 Utmaningen var att låta sajten lyfta rätt sak vid rätt tid – anmälan, röstning, biljetter eller programmet – utan att byggas om inför varje säsong. Och känslan skulle hålla hela året: stort, fint och ärofyllt. Man ska vilja vara en del av både dagen och priset.
+
+![Guldöratdagen på Guldörats sajt: foto från salongen på Dramaten bredvid en presentation av branschdagen, talarna och programmet](/img/guldorat-branschdagen.webp)
 
 ## Byggd kring innehållet, inte kring året
 
