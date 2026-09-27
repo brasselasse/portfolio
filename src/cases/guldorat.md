@@ -31,6 +31,14 @@ Utmaningen var att låta sajten lyfta rätt sak vid rätt tid – anmälan, rös
 
 ![Guldöratdagen på Guldörats sajt: foto från salongen på Dramaten bredvid en presentation av branschdagen, talarna och programmet](/img/guldorat-branschdagen.webp)
 
+## Guld, varmt och lite högtidligt
+
+Känslan bärs av den grafiska profilen. Rubrikerna sätts i Playfair Display Medium Italic – en serif med kursiv som ger galakänsla – och brödtexten i Be Vietnam Pro, som är lugn och lättläst i långa programtexter.
+
+Färgerna är guld i stället för svart och vitt. Texten är en mörk, varm brun i stället för svart, bakgrunderna är krämvita och sektioner som ska lyftas får en gul bakgrund. Rubriker går i guld på ljus botten och i brunt på gul, och den mättade gula färgen är reserverad för logotypen och knapparna – så att det som går att klicka alltid syns.
+
+![Guldörats grafiska profil: rubriker i Playfair Display Medium Italic och brödtext i Be Vietnam Pro, på ljus och på gul bakgrund, färgpalett från mörkbrun text och guld till krämvita och gula bakgrunder, samt örat som symbol](/img/guldorat-identitet.webp)
+
 ## Byggd kring innehållet, inte kring året
 
 Grunden är en CMS-struktur där allt som återkommer varje år är sitt eget innehåll, och där delarna hänger ihop:
