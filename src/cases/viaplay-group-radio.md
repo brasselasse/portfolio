@@ -1,25 +1,38 @@
 ---
 title: "Viaplay Group Radio"
 headline: "Viaplay Group Radio – annonssajten för 3,3 miljoner lyssnare."
-summary: "Säljdrivande annonssajt för radiokanalerna RIX FM, STAR FM, Bandit Rock och Lugna Favoriter."
+summary: "Ett digitalt skyltfönster mot annonsörer, med tydlig Viaplay-branding – och Radiopedia, en ordlista om radioannonsering som både utbildar och drar in trafik från Google."
 type: "producerad på viaplay group radio"
 year: "[år]"
-role: "[din roll, t.ex. design, bygge i Webflow och SEO]"
-delivered: "[vad du levererade]"
+role: "[din roll, t.ex. projektledning, design, bygge i Webflow och SEO]"
+delivered: "B2B-sajt för radioreklam, Radiopedia, SEO"
 url: "https://annonsera.viaplayradio.se"
 cover: /img/viaplay-omslag.webp
 coverAlt: "Viaplay Group Radios sida om radioreklam på dator och mobil"
 order: 2
+stats:
+  - { value: "1–2", label: "på google för ”radioreklam”" }
 ---
 
-## Utmaningen
+## Ett skyltfönster mot annonsörerna
 
-<span class="todo">[Vad behövde kunden? Vilket problem skulle sajten lösa? Två–tre meningar.]</span>
+Viaplay Group Radio behövde ett digitalt skyltfönster mot företag och mediebyråer – en sajt som presenterar utbudet för annonsörer och tydligt hör ihop med Viaplays varumärke.
 
-## Lösningen
+Sajten skulle också synas där köpbeslutet börjar: målet var att ranka högt på sökningar som ”annonsera radio” och ”radioreklam”.
 
-<span class="todo">[Vad gjorde du – struktur, identitet, bygge, SEO? Vad är det smartaste med lösningen?]</span>
+## Utbudet, varumärket och en ordlista
+
+Sajten samlar Viaplay Group Radios erbjudande för annonsörer i Viaplays visuella språk, så att den känns som en del av koncernen och inte som en separat säljsida.
+
+Vid sidan av den lanserade vi **Radiopedia** – en ordlista som förklarar begreppen i radioannonsering, från säsongsindex och sponsring till räckvidd och snittfrekvens. Den fyller två syften:
+
+- **Utbildning, internt och externt** – säljare och annonsörer får samma förklaringar av samma termer.
+- **SEO-kraft för hela sajten** – varje term är en egen sida som fångar sökningar och länkar vidare till utbudet.
+
+![Radiopedia på Viaplay Group Radio: termsidan för säsongsindex med länkar till radioreklam och fler radiotermer](/img/viaplay-radiopedia.webp)
 
 ## Resultatet
 
-<span class="todo">[Vad gav det? Siffror om du har dem, annars ett citat från kunden eller vad kunden kan göra nu som de inte kunde förut.]</span>
+Viaplay Group Radio rankar etta–tvåa på Google för ”radioreklam” – där annonsörer letar när de ska köpa radio.
+
+Radiotermerna i Radiopedia rankar högt på egen hand och fungerar som ingångar: annonsören som söker på ett begrepp landar på en förklaring och leds därifrån vidare till utbudet.
