@@ -1,25 +1,34 @@
 ---
 title: "Matchedin"
 headline: "Matchedin – vägen till arbete, för både kandidater och arbetsgivare."
-summary: "En sajt som talar till både arbetssökande och arbetsgivare."
-type: "[frilansuppdrag]"
+summary: "Matchedin matchar människor som står längre från arbetsmarknaden med arbetsgivare som behöver ny kompetens. Sajten skulle sammanfatta verksamheten och sälja in den – lekfull, men professionell."
+type: "frilansuppdrag"
 year: "[år]"
-role: "[din roll, t.ex. design, bygge i Webflow och SEO]"
-delivered: "[vad du levererade]"
+role: "[din roll, t.ex. projektledning, design i Figma, bygge i Webflow]"
+delivered: "[vad du levererade, t.ex. struktur, design, Webflow, texter]"
 url: "https://www.matchedin.se"
 cover: /img/matchedin-omslag.webp
 coverAlt: "Matchedins startsida på dator och mobil"
 order: 5
 ---
 
-## Utmaningen
+## En verksamhet, två målgrupper
 
-<span class="todo">[Vad behövde kunden? Vilket problem skulle sajten lösa? Två–tre meningar.]</span>
+Matchedin gör två saker. Genom Rusta och Matcha får arbetssökande, ofta personer som står längre från arbetsmarknaden, en mentor och individuellt stöd på vägen till jobb. Genom Matchedin Solutions hjälper de arbetsgivare att hitta kandidater med nya perspektiv och bredda sin arbetsstyrka.
 
-## Lösningen
+Uppdraget var att skapa en sajt som sammanfattar verksamheten och säljer in den. Tonen skulle vara lekfull men professionell: varm och hoppfull för den som söker jobb, trovärdig för den som ska anställa.
 
-<span class="todo">[Vad gjorde du – struktur, identitet, bygge, SEO? Vad är det smartaste med lösningen?]</span>
+## Två vägar in, ett tonläge
+
+Sajten delar tidigt upp besökarna i två vägar – en för kandidater och en för arbetsgivare – så att var och en hittar sitt erbjudande utan att behöva läsa sig igenom den andras.
+
+- **Rusta och Matcha** – för arbetssökande, med fokus på människan och stödet på vägen.
+- **Matchedin Solutions** – för arbetsgivare, med 15 års erfarenhet och nyttan för verksamheten i centrum.
+- **Insikter** – artiklar som visar kunskap och bygger förtroende hos båda målgrupperna.
+- **Trovärdighet** – bland annat Gasellutmärkelsen syns på sajten.
+
+<span class="todo">[Vad är det smartaste med lösningen? T.ex. hur det lekfulla syns i formspråk, färg eller illustrationer utan att tumma på det professionella.]</span>
 
 ## Resultatet
 
-<span class="todo">[Vad gav det? Siffror om du har dem, annars ett citat från kunden eller vad kunden kan göra nu som de inte kunde förut.]</span>
+<span class="todo">[En siffra eller ett citat: förfrågningar från arbetsgivare, anmälningar till Rusta och Matcha, söktrafik – eller vad Matchedin säger om sajten.]</span>
