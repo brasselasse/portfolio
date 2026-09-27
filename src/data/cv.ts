@@ -21,6 +21,7 @@ export const CV = {
     { year: 2025.3, label: '2025', track: 'frilans', kind: 'projekt', title: 'Guldörat', text: 'Sajten för Sveriges radio- och poddpris, som byter fokus med årshjulet. 85 600 klick från Google på 16 månader.', case: 'guldorat' },
     { year: 2024.85, label: '2024', track: 'frilans', kind: 'projekt', title: 'Matchedin', text: 'Lekfull men professionell sajt för två målgrupper – arbetssökande och arbetsgivare.', case: 'matchedin' },
     { year: 2024.4, label: '2024', track: 'viaplay', kind: 'projekt', title: 'Annonssajten och Radiopedia', text: 'B2B-sajt för radioreklam och en ordlista som utbildar och drar trafik. Etta–tvåa på Google för ”radioreklam”.', case: 'viaplay-group-radio' },
+    { year: 2023.85, label: '2023', track: 'frilans', kind: 'projekt', title: 'IDLA Fastigheter', text: 'Sajt för ett fastighetsbolag med hyresbostäder för bofasta i Åredalen – med bostäder, nyheter, hållbarhet och en portal för felanmälan. Byggd i Webflow.' },
     { year: 2021.3, label: '2021', track: 'frilans', kind: 'projekt', title: 'Bloem – första frilansuppdraget', text: 'Frilansandet börjar, vid sidan av heltidsjobbet. Från kontaktsida till blomsterbutik online, med Stripe och Airtable. Förvaltad sedan dess.', case: 'bloem' },
     { year: 2019.5, label: '2019', track: 'viaplay', kind: 'utmärkelse', title: 'Guld på In House-galan', text: 'Förstaplats i kategorin DR-utskick för ”Den stora flytten”.' },
     { year: 2018.7, label: '2018/19', track: 'viaplay', kind: 'utmärkelse', title: 'Challenger Program', text: 'Utvald till Viaplay Groups program för koncernens största talanger, tillsammans med åtta andra medarbetare.' },
@@ -43,7 +44,7 @@ export const CV = {
       period: '2021 –',
       role: 'Frilansande designer och webbutvecklare',
       org: 'Egen verksamhet',
-      text: 'Vid sidan av heltidstjänsten: sajter i Webflow för bland andra Guldörat, Matchedin, Bloem, CFVM och Hammarby Handboll – från struktur och design i Figma till bygge, e-handel, CMS och SEO.',
+      text: 'Vid sidan av heltidstjänsten: sajter i Webflow för bland andra Guldörat, Matchedin, IDLA Fastigheter, Bloem, CFVM och Hammarby Handboll – från struktur och design i Figma till bygge, e-handel, CMS och SEO.',
       cases: ['guldorat', 'matchedin', 'bloem'],
     },
     {
