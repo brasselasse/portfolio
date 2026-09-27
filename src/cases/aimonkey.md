@@ -40,6 +40,19 @@ AImonkey samlar allt på ett ställe, sorterat efter vem du är och vad du vill 
 
 ![Promptgeneratorn på AImonkey: välj att bygga en prompt från scratch eller utgå från en mall](/img/aimonkey-promptgenerator.webp)
 
+## Promptgeneratorn – navet i sajten
+
+Allt på AImonkey kretsar kring prompter. Tanken är enkel: de flesta får mediokra svar från AI för att de skickar mediokra prompter. Generatorn ser till att användaren aldrig missar de fyra sakerna som gör skillnad:
+
+1. **Uppgift** – vad AI:n ska göra, konkret.
+2. **Roll och ton** – vem AI:n ska vara och hur den ska låta.
+3. **Underlag** – namn, siffror och text som AI:n behöver i stället för att gissa.
+4. **Riktlinjer** – format, längd och regler för svaret.
+
+Användaren svarar på fyra korta steg, och generatorn sätter ihop en färdig prompt att kopiera direkt in i ChatGPT, Claude eller Gemini. Det tar under en minut, är gratis och kräver ingen inloggning.
+
+Generatorn står inte för sig själv. I artiklarna och i alla mallar ligger prompter i egna boxar, och med ett knapptryck öppnas prompten i generatorn för att anpassas. Läsaren går alltså från att läsa om ett problem till att ha en egen prompt som löser det – utan att lämna sajten.
+
 ## Apan som guide
 
 Varumärket bygger på bilden av AI som en djungel och apan som den som visar vägen. Tonen är enkel och uppmuntrande – ”från noll till koll” – för att sänka tröskeln för den som aldrig använt AI.
@@ -52,7 +65,7 @@ Varumärket bygger på bilden av AI som en djungel och apan som den som visar v�
 
 Sajten är byggd i Webflow med ett sammankopplat CMS: artiklar, mallar, prompter, verktyg, termer och kategorier är egna samlingar som länkar till varandra. Varje ny artikel eller mall hamnar automatiskt på rätt målgruppssidor.
 
-Promptgeneratorn och kopiera-funktionerna i promptbiblioteket är byggda med egen kod ovanpå Webflow. <span class="todo">[Beskriv kort hur generatorn fungerar]</span>
+Promptgeneratorn, promptboxarna och kopiera-funktionerna i promptbiblioteket är byggda med egen kod ovanpå Webflow. Varje promptbox bär med sig sin prompt till generatorn, så att samma prompt kan användas som den är eller anpassas steg för steg.
 
 ## Byggd för att hittas
 
