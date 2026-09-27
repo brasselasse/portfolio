@@ -13,7 +13,6 @@ export const SITE = {
   cvUrl: '/cv/', // digitalt CV
   // Sätt till true när sajten ska synas i Google (tar bort noindex).
   indexable: false,
-  // Adress dit kontaktformuläret skickas (t.ex. Formspree eller Tally).
-  // Tom sträng = testläge, formuläret skickar inget.
-  formEndpoint: '',
+  // Tally-formulär i kontaktsektionen (mappen Lars i Tally). Tom sträng = visa bara e-post.
+  tallyFormId: 'VLgOgy',
 };
