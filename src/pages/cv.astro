@@ -1,0 +1,109 @@
+---
+import Base from '../layouts/Base.astro';
+import { SITE } from '../config';
+import { CV } from '../data/cv';
+import { cases } from '../lib/cases';
+import { url } from '../lib/url';
+
+// [platshållare] i datan visas som gul markering tills den är ifylld.
+const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const ph = (s: string) => esc(s).replace(/\[([^\]]+)\]/g, '<span class="todo">[$1]</span>');
+const caseBySlug = Object.fromEntries(cases.map((c) => [c.slug, c]));
+const hasEmail = !SITE.email.startsWith('[');
+---
+<Base title="CV" description={`CV för ${SITE.name}, ${SITE.role.toLowerCase()}. Erfarenhet, kompetenser och utvalda case.`} image="/img/lars-dahlberg-portratt.webp">
+  <section class="wrap cv-hero">
+    <div class="cv-hero-text">
+      <nav class="crumb" aria-label="Brödsmulor"><a href={url('/')}>start</a> <span class="sig">|</span> cv</nav>
+      <h1>{SITE.name}</h1>
+      <p class="cv-role">{SITE.role}</p>
+      <p class="lead">{CV.intro}</p>
+      <div class="meta cv-meta">
+        {hasEmail && <div><span class="lbl">e-post</span><a href={`mailto:${SITE.email}`}>{SITE.email}</a></div>}
+        <div><span class="lbl">linkedin</span><a href={SITE.linkedin}>lars-dahlberg <span class="sig">|</span> →</a></div>
+        <div><span class="lbl">webb</span><a href={url('/')}>larsdahlberg.nu <span class="sig">|</span> →</a></div>
+      </div>
+      <button type="button" class="btn btn-s cv-print" onclick="window.print()">Skriv ut eller spara som PDF</button>
+    </div>
+    <div class="cv-portrait">
+      <img src={url('/img/lars-dahlberg-portratt-640.webp')} width="640" height="800" alt="Porträtt av Lars Dahlberg" />
+    </div>
+  </section>
+
+  <section class="wrap sec cv-sec">
+    <div class="sec-in">
+      <span class="lbl">01<span class="sig">|</span> erfarenhet</span>
+      <ol class="cv-list">
+        {CV.experience.map((e) => (
+          <li class="cv-row">
+            <span class="cv-period" set:html={ph(e.period)} />
+            <div class="cv-main">
+              <h2><span set:html={ph(e.role)} /><span class="cv-org"> <span class="sig">|</span> <span set:html={ph(e.org)} /></span></h2>
+              <p set:html={ph(e.text)} />
+            </div>
+            {e.cases.length > 0 && (
+              <div class="cv-cases">
+                <span class="lbl">case</span>
+                {e.cases.filter((s) => caseBySlug[s]).map((s) => (
+                  <a href={url(`/case/${s}/`)}>{caseBySlug[s].data.title} <span class="sig">|</span> →</a>
+                ))}
+              </div>
+            )}
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="wrap sec cv-sec">
+    <div class="sec-in">
+      <span class="lbl">02<span class="sig">|</span> kompetenser</span>
+      <div class="cv-skills">
+        {CV.skills.map((g) => (
+          <div>
+            <h2>{g.area}</h2>
+            <ul>{g.items.map((i) => <li>{i}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sec cv-sec">
+    <div class="cv-two">
+      <div class="sec-in">
+        <span class="lbl">03<span class="sig">|</span> utbildning</span>
+        <ol class="cv-list cv-list-s">
+          {CV.education.map((e) => (
+            <li class="cv-row">
+              <span class="cv-period" set:html={ph(e.period)} />
+              <div class="cv-main"><h2 set:html={ph(e.title)} /><p set:html={ph(e.org)} /></div>
+            </li>
+          ))}
+        </ol>
+      </div>
+      <div class="sec-in">
+        <span class="lbl">04<span class="sig">|</span> språk</span>
+        <ol class="cv-list cv-list-s">
+          {CV.languages.map((l) => (
+            <li class="cv-row">
+              <div class="cv-main"><h2>{l.lang}</h2><p set:html={ph(l.level)} /></div>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section slot="dark" class="wrap next-cta">
+    <div class="a">
+      <span class="lbl">nästa steg</span>
+      <h2>Vill du veta mer?</h2>
+      <p class="lead" style="color:var(--d-muted)">Hör av dig så berättar jag gärna mer om hur jag arbetar.</p>
+    </div>
+    <div class="b">
+      {hasEmail && <a href={`mailto:${SITE.email}`} class="btn btn-p">Mejla mig →</a>}
+      <a href={url('/#case')} class="tlink" style="justify-content:center"><span>Se alla case</span> <span class="sig">|</span> →</a>
+    </div>
+  </section>
+</Base>

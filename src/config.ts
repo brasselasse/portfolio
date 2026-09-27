@@ -10,7 +10,7 @@ export const SITE = {
   email: 'hello@larsdahlberg.nu',
   phone: '', // tom = visas inte
   bookingUrl: '', // t.ex. en Calendly-länk
-  cvUrl: '', // länk till CV (pdf i public/)
+  cvUrl: '/cv/', // digitalt CV
   // Sätt till true när sajten ska synas i Google (tar bort noindex).
   indexable: false,
   // Adress dit kontaktformuläret skickas (t.ex. Formspree eller Tally).
