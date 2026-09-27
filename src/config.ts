@@ -7,8 +7,8 @@ export const SITE = {
     'Från behovsanalys till färdig, sökbar sajt. Strategi, grafisk identitet, bygge i Webflow och SEO – under ett och samma tak.',
   role: 'Digital Art Director',
   linkedin: 'https://www.linkedin.com/in/lars-dahlberg-2324036b/',
-  email: '[e-postadress]',
-  phone: '[telefonnummer]',
+  email: 'hello@larsdahlberg.nu',
+  phone: '', // tom = visas inte
   bookingUrl: '', // t.ex. en Calendly-länk
   cvUrl: '', // länk till CV (pdf i public/)
   // Sätt till true när sajten ska synas i Google (tar bort noindex).

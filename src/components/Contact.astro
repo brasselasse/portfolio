@@ -3,7 +3,7 @@ import { SITE } from '../config';
 interface Props { number?: string }
 const { number = '06' } = Astro.props;
 const hasEmail = !SITE.email.startsWith('[');
-const hasPhone = !SITE.phone.startsWith('[');
+const hasPhone = SITE.phone && !SITE.phone.startsWith('[');
 ---
 <section class="wrap contact" id="kontakt">
   <span class="lbl" style="grid-column:1 / -1">{number}<span class="sig">|</span> kontakt</span>
@@ -12,7 +12,7 @@ const hasPhone = !SITE.phone.startsWith('[');
     <p class="lead">Boka ett kostnadsfritt samtal på 30 minuter. Jag svarar inom 24 timmar på vardagar.</p>
     <div class="contact-list">
       {hasEmail ? <a href={`mailto:${SITE.email}`}>{SITE.email}</a> : <span class="todo" style="color:#121212">[e-postadress]</span>}
-      {hasPhone ? <a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a> : <span class="todo" style="color:#121212">[telefonnummer]</span>}
+      {hasPhone && <a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a>}
       {SITE.bookingUrl && <a href={SITE.bookingUrl}>Boka direkt i kalendern <span class="sig">|</span> →</a>}
     </div>
   </div>
