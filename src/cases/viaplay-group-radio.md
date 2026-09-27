@@ -12,13 +12,14 @@ coverAlt: "Viaplay Group Radios sida om radioreklam på dator och mobil"
 order: 2
 stats:
   - { value: "1–2", label: "på google för ”radioreklam”" }
+  - { value: "3–6", label: "på google för ”annonsera i radio”" }
 ---
 
 ## Ett skyltfönster mot annonsörerna
 
 Viaplay Group Radio behövde ett digitalt skyltfönster mot företag och mediebyråer – en sajt som presenterar utbudet för annonsörer och tydligt hör ihop med Viaplays varumärke.
 
-Sajten skulle också synas där köpbeslutet börjar: målet var att ranka högt på sökningar som ”annonsera radio” och ”radioreklam”.
+Sajten skulle också synas där köpbeslutet börjar: målet var att ranka högt på sökningar som ”annonsera i radio” och ”radioreklam”.
 
 ## Utbudet, varumärket och en ordlista
 
@@ -33,6 +34,6 @@ Vid sidan av den lanserade vi **Radiopedia** – en ordlista som förklarar begr
 
 ## Resultatet
 
-Viaplay Group Radio rankar etta–tvåa på Google för ”radioreklam” – där annonsörer letar när de ska köpa radio.
+Viaplay Group Radio rankar etta–tvåa på Google för ”radioreklam” och på plats tre till sex för ”annonsera i radio” – två sökningar som annonsörer gör när de ska köpa radio.
 
 Radiotermerna i Radiopedia rankar högt på egen hand och fungerar som ingångar: annonsören som söker på ett begrepp landar på en förklaring och leds därifrån vidare till utbudet.
