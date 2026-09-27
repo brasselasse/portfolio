@@ -70,9 +70,23 @@ const hasEmail = !SITE.email.startsWith('[');
   </section>
 
   <section class="wrap sec cv-sec">
+    <div class="sec-in">
+      <span class="lbl">03<span class="sig">|</span> utmärkelser</span>
+      <ol class="cv-list">
+        {CV.awards.map((a) => (
+          <li class="cv-row">
+            <span class="cv-period">{a.year}</span>
+            <div class="cv-main"><h2>{a.title}</h2><p>{a.text}</p></div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="wrap sec cv-sec">
     <div class="cv-two">
       <div class="sec-in">
-        <span class="lbl">03<span class="sig">|</span> utbildning</span>
+        <span class="lbl">04<span class="sig">|</span> utbildning</span>
         <ol class="cv-list cv-list-s">
           {CV.education.map((e) => (
             <li class="cv-row">
@@ -83,7 +97,7 @@ const hasEmail = !SITE.email.startsWith('[');
         </ol>
       </div>
       <div class="sec-in">
-        <span class="lbl">04<span class="sig">|</span> språk</span>
+        <span class="lbl">05<span class="sig">|</span> språk</span>
         <ol class="cv-list cv-list-s">
           {CV.languages.map((l) => (
             <li class="cv-row">
