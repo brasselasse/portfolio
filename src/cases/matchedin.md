@@ -31,7 +31,9 @@ Sajten delar tidigt upp besökarna i två vägar – en för kandidater och en f
 - **Insikter** – artiklar som visar kunskap och bygger förtroende hos båda målgrupperna.
 - **Trovärdighet** – bland annat Gasellutmärkelsen syns på sajten.
 
-<span class="todo">[Vad är det smartaste med lösningen? T.ex. hur det lekfulla syns i formspråk, färg eller illustrationer utan att tumma på det professionella.]</span>
+Det lekfulla sitter i formspråket. Runda, överlappande cirklar i grönt och persika möts och blandas där de korsar varandra – en enkel bild av två parter som matchas. Porträtten beskärs runt och tonas i grönt, en streckad pil leder blicken från rubriken till knappen och vägen framåt, och gula knappar och en varm, ljus bakgrund gör sajten välkomnande.
+
+Det professionella ligger i ordningen runt omkring: gott om luft, en tydlig rubrik och en knapp per budskap. Resultatet känns mänskligt för den som söker jobb, utan att tappa trovärdigheten hos den som ska anställa.
 
 ## Resultatet
 
