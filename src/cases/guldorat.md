@@ -10,6 +10,12 @@ url: "https://www.guldorat.se"
 cover: /img/guldorat-omslag.webp
 coverAlt: "Guldörats startsida på dator och mobil"
 order: 3
+chart: guldorat-search
+stats:
+  - { value: "85 600", label: "klick från google på 16 månader" }
+  - { value: "31 000", label: "klick direkt till röstningssidorna" }
+  - { value: "13 900", label: "klick under galaveckan 2025" }
+  - { value: "1", label: "på google för ”guldörat”" }
 ---
 
 ## En sajt som lever i ett årshjul
@@ -43,4 +49,6 @@ För Guldöratdagen byggde jag ett schema över dagen, uppdelat på föreläsnin
 
 Guldörat kan växla fokus med årshjulet och uppdatera program, talare och nomineringar själva i CMS:et, utan att röra designen.
 
-<span class="todo">[Gärna en siffra: besök eller röster under publikröstningen, sålda biljetter, antal anmälda bidrag – eller ett citat från Radio- och podcastakademin.]</span>
+Söktrafiken visar att det fungerar. Under sommar och vinter är det lugnt, runt 50–100 klick från Google i veckan. När nomineringarna släpps och röstningen öppnar i slutet av augusti går trafiken upp till 6 000–9 000 klick i veckan, och under galaveckan i oktober 2025 kom nästan 14 000. Sajten tar emot topparna och lyfter rätt sak när de kommer: röstningssidorna ensamma har fått över 31 000 klick.
+
+Guldörat ligger etta på sitt eget namn, och ”guldörat rösta” ger klick från nio av tio som ser träffen. Sajten syns också utanför varumärket, bland annat på ”årets podd” och på ”stora radiopriset”, prisets gamla namn.

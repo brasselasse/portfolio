@@ -1,14 +1,27 @@
 ---
-// Stapeldiagram över visningar i Google per vecka, ritat som SVG vid bygget.
+// Stapeldiagram över söktrafik från Google per vecka, ritat som SVG vid bygget.
+// Standard: visningar (AImonkey). Med metric "clicks" visas klick i stället.
+// Valfritt i datafilen: title, aria, tickStep, labels [{ week: "ÅÅÅÅ-MM-DD", text }].
 interface Week { week: string; clicks: number; impressions: number; position: number | null }
-interface Props { data: { source: string; period: string; totals: { impressions: number; clicks: number; pages: number }; weeks: Week[] } }
+interface Props {
+  data: {
+    source: string; period: string;
+    metric?: 'impressions' | 'clicks'; title?: string; aria?: string; tickStep?: number;
+    labels?: { week: string; text: string }[];
+    totals: { impressions: number; clicks: number; pages?: number };
+    weeks: Week[];
+  };
+}
 const { data } = Astro.props;
+const metric = data.metric ?? 'impressions';
+const val = (w: Week) => w[metric];
 
 const W = 1296, H = 320, L = 60, R = 8, T = 24, B = 36;
 const pw = W - L - R, ph = H - T - B;
-const max = Math.max(...data.weeks.map((w) => w.impressions));
-const ymax = Math.ceil(max / 1500) * 1500;
-const ticks = Array.from({ length: ymax / 1500 + 1 }, (_, i) => i * 1500);
+const step = data.tickStep ?? 1500;
+const max = Math.max(...data.weeks.map(val));
+const ymax = Math.ceil(max / step) * step;
+const ticks = Array.from({ length: ymax / step + 1 }, (_, i) => i * step);
 const n = data.weeks.length, slot = pw / n, bw = slot - 4;
 const months = ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
 const nf = (v: number) => v.toLocaleString('sv-SE');
@@ -16,28 +29,43 @@ const y = (v: number) => T + ph - (ph * v) / ymax;
 
 const bars = data.weeks.map((w, i) => {
   const [a, b] = w.week.split(' - ').map((s) => new Date(s.trim()));
-  const x = L + i * slot + 2, top = y(w.impressions), r = Math.min(4, T + ph - top, bw / 2);
+  const x = L + i * slot + 2, top = y(val(w)), r = Math.min(4, T + ph - top, bw / 2);
   const d = `M${x},${T + ph}V${top + r}Q${x},${top} ${x + r},${top}H${x + bw - r}Q${x + bw},${top} ${x + bw},${top + r}V${T + ph}Z`;
   const pos = w.position === null ? '–' : String(w.position).replace('.', ',');
-  const tip = `${a.getDate()} ${months[a.getMonth()]}–${b.getDate()} ${months[b.getMonth()]}: ${nf(w.impressions)} visningar, ${w.clicks} klick, snittposition ${pos}`;
-  return { x, d, tip, month: a.getMonth(), startDay: a.getDate() };
+  const tip = `${a.getDate()} ${months[a.getMonth()]}–${b.getDate()} ${months[b.getMonth()]}: ${nf(w.impressions)} visningar, ${nf(w.clicks)} klick, snittposition ${pos}`;
+  return { x, d, tip, month: a.getMonth(), year: a.getFullYear(), startDay: a.getDate() };
 });
+const multiYear = bars[0].year !== bars[n - 1].year;
 const monthLabels: { x: number; label: string }[] = [];
 let seen = -1;
 bars.forEach((b, i) => {
-  if (b.month !== seen && (i === 0 || b.startDay <= 7)) { seen = b.month; monthLabels.push({ x: b.x, label: months[b.month] }); }
+  if (b.month !== seen && (i === 0 || b.startDay <= 7)) {
+    seen = b.month;
+    const yr = multiYear && (i === 0 || b.month === 0) ? ` ${String(b.year).slice(2)}` : '';
+    monthLabels.push({ x: b.x, label: months[b.month] + yr });
+  }
 });
+// Första etiketten stryks om den krockar med nästa (t.ex. när datan börjar sista veckan i en månad).
+if (monthLabels.length > 1 && monthLabels[1].x - monthLabels[0].x < 48) {
+  const yr = monthLabels[0].label.split(' ')[1];
+  monthLabels.shift();
+  if (yr && !monthLabels[0].label.includes(' ')) monthLabels[0].label += ` ${yr}`;
+}
+const at = (i: number) => ({ x: L + i * slot + 2 + bw / 2, y: y(val(data.weeks[i])) - 8 });
 const first = data.weeks[1], last = data.weeks[n - 2];
-const directLabels = [
-  { x: L + 1 * slot + 2 + bw / 2, y: y(first.impressions) - 8, text: nf(first.impressions) },
-  { x: L + (n - 2) * slot + 2 + bw / 2, y: y(last.impressions) - 8, text: nf(last.impressions) },
-];
-const aria = `Visningar i Google per vecka, ${data.period}. Ökar från ${nf(first.impressions)} till ${nf(last.impressions)} i veckan.`;
+const directLabels = data.labels
+  ? data.labels.flatMap((l) => {
+      const i = data.weeks.findIndex((w) => w.week.startsWith(l.week));
+      return i < 0 ? [] : [{ ...at(i), text: l.text }];
+    })
+  : [{ ...at(1), text: nf(val(first)) }, { ...at(n - 2), text: nf(val(last)) }];
+const title = data.title ?? 'Visningar i Google per vecka';
+const aria = data.aria ?? `${title}, ${data.period}. Ökar från ${nf(val(first))} till ${nf(val(last))} i veckan.`;
 ---
 <div class="chart">
   <div class="chart-head">
-    <b>Visningar i Google per vecka</b>
-    <span class="lbl">{nf(data.totals.impressions)} visningar <span class="sig">|</span> {data.totals.clicks} klick <span class="sig">|</span> {data.totals.pages} sidor i sök</span>
+    <b>{title}</b>
+    <span class="lbl">{nf(data.totals.impressions)} visningar <span class="sig">|</span> {nf(data.totals.clicks)} klick{data.totals.pages !== undefined && <> <span class="sig">|</span> {data.totals.pages} sidor i sök</>}</span>
   </div>
   <div class="chart-box">
     <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={aria}>
@@ -65,7 +93,7 @@ const aria = `Visningar i Google per vecka, ${data.period}. Ökar från ${nf(fir
       <table>
         <thead><tr><th>vecka</th><th>visningar</th><th>klick</th><th>position</th></tr></thead>
         <tbody>
-          {data.weeks.map((w) => <tr><td>{w.week}</td><td>{nf(w.impressions)}</td><td>{w.clicks}</td><td>{w.position === null ? '–' : String(w.position).replace('.', ',')}</td></tr>)}
+          {data.weeks.map((w) => <tr><td>{w.week}</td><td>{nf(w.impressions)}</td><td>{nf(w.clicks)}</td><td>{w.position === null ? '–' : String(w.position).replace('.', ',')}</td></tr>)}
         </tbody>
       </table>
     </div>
