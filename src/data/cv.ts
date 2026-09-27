@@ -17,6 +17,7 @@ export const CV = {
   ],
   milestones: [
     { year: 2026.2, label: '2026', track: 'aimonkey', kind: 'projekt', title: 'Startar AImonkey', text: 'En svensk guide till AI med promptgenerator, promptbibliotek och mallar – mitt eget projekt vid sidan av jobbet. Idé, varumärke, design, bygge, SEO och drift.', case: 'aimonkey' },
+    { year: 2026.3, label: '2026', track: 'viaplay', kind: 'projekt', title: 'dabradio.nu', text: 'Viaplay Radios guide till DAB+ – sök kanaler där du bor och se hur du lyssnar i bilen, med guider per bilmärke, och hemma. Byggd i Webflow.' },
     { year: 2025.3, label: '2025', track: 'frilans', kind: 'projekt', title: 'Guldörat', text: 'Sajten för Sveriges radio- och poddpris, som byter fokus med årshjulet. 85 600 klick från Google på 16 månader.', case: 'guldorat' },
     { year: 2024.85, label: '2024', track: 'frilans', kind: 'projekt', title: 'Matchedin', text: 'Lekfull men professionell sajt för två målgrupper – arbetssökande och arbetsgivare.', case: 'matchedin' },
     { year: 2024.4, label: '2024', track: 'viaplay', kind: 'projekt', title: 'Annonssajten och Radiopedia', text: 'B2B-sajt för radioreklam och en ordlista som utbildar och drar trafik. Etta–tvåa på Google för ”radioreklam”.', case: 'viaplay-group-radio' },
