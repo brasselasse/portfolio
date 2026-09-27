@@ -10,6 +10,10 @@ url: "https://www.matchedin.se"
 cover: /img/matchedin-omslag.webp
 coverAlt: "Matchedins startsida på dator och mobil"
 order: 5
+stats:
+  - { value: "+83 %", label: "klick från google, maj–sep jämfört med året innan" }
+  - { value: "50 → 32", label: "snittposition i google, sommaren 2025 mot 2026" }
+  - { value: "1", label: "på google för ”matchedin ab”" }
 ---
 
 ## En verksamhet, två målgrupper
@@ -31,4 +35,6 @@ Sajten delar tidigt upp besökarna i två vägar – en för kandidater och en f
 
 ## Resultatet
 
-<span class="todo">[En siffra eller ett citat: förfrågningar från arbetsgivare, anmälningar till Rusta och Matcha, söktrafik – eller vad Matchedin säger om sajten.]</span>
+Sajten syns allt bättre. Mellan maj och september 2026 kom 83 procent fler klick från Google än samma period året innan, och snittpositionen i sökresultaten har gått från runt 50 till 32. Den som söker på Matchedin hittar rätt direkt – företaget ligger etta på sitt eget namn.
+
+Artiklarna under Insikter bidrar: intervjuer och berättelser från kandidater och arbetsgivare drar egen trafik och ger besökaren fler skäl att stanna.
