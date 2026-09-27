@@ -1,25 +1,36 @@
 ---
 title: "Bloem"
-headline: "Bloem – blomster till alla tillfällen."
-summary: "Florist i Stockholm – blombud, bröllop, begravning och företag."
-type: "[frilansuppdrag]"
+headline: "Bloem – från kontaktsida till blomsterbutik online."
+summary: "Bloem hade en sajt som i princip bara var en kontaktsida. Nu visar den hela utbudet, och kunderna beställer blombud direkt – med betalning via Stripe och orderhantering i Airtable."
+type: "frilansuppdrag"
 year: "[år]"
-role: "[din roll, t.ex. design, bygge i Webflow och SEO]"
-delivered: "[vad du levererade]"
+role: "Design, bygge och e-handel"
+delivered: "Struktur, bildurval, design, bygge, e-handel med Stripe, orderflöde och CRM i Airtable"
 url: "https://www.bloem.se"
 cover: /img/bloem-omslag.webp
 coverAlt: "Bloems startsida på dator och mobil"
 order: 4
 ---
 
-## Utmaningen
+## En kontaktsida med lite innehåll
 
-<span class="todo">[Vad behövde kunden? Vilket problem skulle sajten lösa? Två–tre meningar.]</span>
+Bloems sajt var i praktiken en kontaktsida. Den sa vem de var och hur man nådde dem, men visade inte vad de kunde. Utbudet – blombud, bröllop, begravning och företag – syntes inte, och det gick inte att beställa något.
 
-## Lösningen
+Uppdraget var att låta bilderna göra jobbet: visa hela utbudet kategori för kategori, och visa det hantverk och den professionalitet som kunderna möter i butiken.
 
-<span class="todo">[Vad gjorde du – struktur, identitet, bygge, SEO? Vad är det smartaste med lösningen?]</span>
+## Utbudet i bild, beställning i samma flöde
+
+Sajten byggdes kring kategorierna, med bilder som bär varje sida. Besökaren ser vad Bloem gör innan hen läser en rad text.
+
+- **Hela utbudet i kategorier** – blombud, bröllop, begravning och företag, var och en med egna bilder.
+- **E-handel för blombud** – kunden väljer, beställer och betalar direkt på sajten.
+- **Stripe som betallösning** – säker kortbetalning utan att Bloem hanterar kortuppgifter.
+- **Airtable som CRM och ordersystem** – varje betald beställning hamnar automatiskt där, redo för produktion.
+
+Flödet hänger ihop från klick till bukett: beställningen görs på sajten, betalningen går via Stripe och ordern landar i Airtable, där butiken plockar upp den och binder.
 
 ## Resultatet
 
-<span class="todo">[Vad gav det? Siffror om du har dem, annars ett citat från kunden eller vad kunden kan göra nu som de inte kunde förut.]</span>
+Bloem gick från en sajt som bara berättade hur man når dem till en som säljer. Kunderna kan beställa blombud dygnet runt, och butiken får beställningarna samlade på ett ställe.
+
+<span class="todo">[Gärna en siffra eller ett citat: antal beställningar online, andel av blombuden som nu kommer via sajten, eller vad Bloem säger om skillnaden.]</span>
