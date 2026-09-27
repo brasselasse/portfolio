@@ -5,6 +5,30 @@ export const CV = {
   intro:
     'Produktägare och designer med närmare 20 års erfarenhet av att skapa användarvänliga digitala tjänster. Jag tar webbprojekt hela vägen – från behovsanalys och grafisk identitet till färdigbyggd, sökbar sajt och uppföljning – och gör komplexa idéer till enkla, engagerande upplevelser.',
 
+  // Tidslinjen: spår (jobb/utbildning över tid) och händelser (vad som gjordes).
+  // year kan vara decimal för att placera händelsen inom året (2024.8 = hösten 2024).
+  // col = vilket spår (kolumn) till vänster; legend = förklaring ovanför tidslinjen.
+  tracks: [
+    { id: 'viaplay', col: 0, label: 'Viaplay Group Radio', legend: 'Heltid på Viaplay Group Radio, sedan 2010', segments: [[2010.7, 2027]] },
+    { id: 'frilans', col: 1, label: 'Frilans', legend: 'Frilans vid sidan av, sedan 2021', segments: [[2021, 2027]] },
+    { id: 'aimonkey', col: 2, label: 'AImonkey', legend: 'Eget projekt, sedan 2026', segments: [[2026, 2027]] },
+    { id: 'bonsai', col: 0, label: 'Bonsai Branding', segments: [[2008.5, 2010.7]] },
+    { id: 'utb', col: 0, label: 'Utbildning', segments: [[2003.7, 2004.4], [2005.6, 2008.5]] },
+  ],
+  milestones: [
+    { year: 2026.2, label: '2026', track: 'aimonkey', kind: 'projekt', title: 'Startar AImonkey', text: 'En svensk guide till AI med promptgenerator, promptbibliotek och mallar – mitt eget projekt vid sidan av jobbet. Idé, varumärke, design, bygge, SEO och drift.', case: 'aimonkey' },
+    { year: 2025.3, label: '2025', track: 'frilans', kind: 'projekt', title: 'Guldörat', text: 'Sajten för Sveriges radio- och poddpris, som byter fokus med årshjulet. 85 600 klick från Google på 16 månader.', case: 'guldorat' },
+    { year: 2024.85, label: '2024', track: 'frilans', kind: 'projekt', title: 'Matchedin', text: 'Lekfull men professionell sajt för två målgrupper – arbetssökande och arbetsgivare.', case: 'matchedin' },
+    { year: 2024.4, label: '2024', track: 'viaplay', kind: 'projekt', title: 'Annonssajten och Radiopedia', text: 'B2B-sajt för radioreklam och en ordlista som utbildar och drar trafik. Etta–tvåa på Google för ”radioreklam”.', case: 'viaplay-group-radio' },
+    { year: 2021.3, label: '2021', track: 'frilans', kind: 'projekt', title: 'Bloem – första frilansuppdraget', text: 'Frilansandet börjar, vid sidan av heltidsjobbet. Från kontaktsida till blomsterbutik online, med Stripe och Airtable. Förvaltad sedan dess.', case: 'bloem' },
+    { year: 2019.5, label: '2019', track: 'viaplay', kind: 'utmärkelse', title: 'Guld på In House-galan', text: 'Förstaplats i kategorin DR-utskick för ”Den stora flytten”.' },
+    { year: 2018.7, label: '2018/19', track: 'viaplay', kind: 'utmärkelse', title: 'Challenger Program', text: 'Utvald till Viaplay Groups program för koncernens största talanger, tillsammans med åtta andra medarbetare.' },
+    { year: 2010.7, label: '2010', track: 'viaplay', kind: 'jobb', title: 'Produktägare på MTG Radio', text: 'Ansvar för radiobolagets alla digitala B2C-plattformar och interna system – genom bytena till Nordic Entertainment Group och Viaplay Group. Designar och bygger även eventsajter, som RIX FM Festival.' },
+    { year: 2008.5, label: '2008', track: 'bonsai', kind: 'jobb', title: 'Webbdesigner i Perth', text: 'Designade och byggde webbplatser i WordPress för kunder i Perth, Australien, på Bonsai Branding.' },
+    { year: 2008.4, label: '2008', track: 'utb', kind: 'utbildning', title: 'Kandidatexamen i kommunikation', text: 'Berghs School of Communication och Edith Cowan University, med fokus på media och design.' },
+    { year: 2004.3, label: '2004', track: 'utb', kind: 'utmärkelse', title: 'Dean’s List på Hawaii', text: 'Ett studieår på Hawaii Pacific University gav en plats på Dean’s List.' },
+  ],
+
   experience: [
     {
       period: '2026 –',
@@ -17,7 +41,7 @@ export const CV = {
       period: '2021 –',
       role: 'Frilansande designer och webbutvecklare',
       org: 'Egen verksamhet',
-      text: 'Sajter i Webflow för bland andra Guldörat, Matchedin, Bloem, CFVM och Hammarby Handboll – från struktur och design i Figma till bygge, e-handel, CMS och SEO.',
+      text: 'Vid sidan av heltidstjänsten: sajter i Webflow för bland andra Guldörat, Matchedin, Bloem, CFVM och Hammarby Handboll – från struktur och design i Figma till bygge, e-handel, CMS och SEO.',
       cases: ['guldorat', 'matchedin', 'bloem'],
     },
     {

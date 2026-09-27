@@ -1,0 +1,71 @@
+---
+// Vertikal tidslinje för CV:t. Varje händelse är en rad; till vänster löper ett spår per
+// sysselsättning, så att parallella spår (heltidsjobb + frilans + eget projekt) syns sida vid sida.
+import { CV } from '../data/cv';
+import { cases } from '../lib/cases';
+import { url } from '../lib/url';
+
+const caseBySlug = Object.fromEntries(cases.map((c) => [c.slug, c]));
+const tracks = Object.fromEntries(CV.tracks.map((t) => [t.id, t]));
+const cols = Math.max(...CV.tracks.map((t) => t.col)) + 1;
+const active = (id: string, y: number) => tracks[id].segments.some(([a, b]) => y >= a && y <= b);
+
+const ms = [...CV.milestones].sort((a, b) => b.year - a.year);
+const rows = ms.map((m, i) => {
+  const above = ms[i - 1]?.year ?? m.year + 0.01;
+  const below = ms[i + 1]?.year ?? m.year - 0.01;
+  const lanes = CV.tracks.map((t) => ({
+    col: t.col,
+    up: active(t.id, (m.year + above) / 2),
+    down: active(t.id, (m.year + below) / 2),
+    mark: t.id === m.track,
+  }));
+  return { ...m, id: `tl-${i + 1}`, lanes };
+});
+---
+<div class="tl">
+  <ul class="tl-legend" aria-label="Spår i tidslinjen">
+    {CV.tracks.filter((t) => t.legend).map((t) => (
+      <li><span class="tl-key" aria-hidden="true">{Array.from({ length: cols }, (_, i) => <span class={i === t.col ? 'on' : ''} />)}</span>{t.legend}</li>
+    ))}
+  </ul>
+  <ol class="tl-list" style={`--cols:${cols}`}>
+    {rows.map((r) => (
+      <li id={r.id} class="tl-item">
+        <div class="tl-graph" aria-hidden="true">
+          {r.lanes.filter((l) => l.up || l.down || l.mark).map((l) => (
+            <span class="tl-lane" style={`--c:${l.col}`}>
+              {l.up && <span class="tl-up" />}
+              {l.down && <span class="tl-down" />}
+              {l.mark && <span class="tl-dot" />}
+            </span>
+          ))}
+        </div>
+        <span class="tl-year">{r.label}</span>
+        <div class="tl-body">
+          <span class="lbl">{r.kind} <span class="sig">|</span> {tracks[r.track].label.toLowerCase()}</span>
+          <h2>{r.title}</h2>
+          <p>{r.text}</p>
+          {r.case && caseBySlug[r.case] && (
+            <a class="tl-case" href={url(`/case/${r.case}/`)}>Läs caset <span class="sig">|</span> →</a>
+          )}
+        </div>
+      </li>
+    ))}
+  </ol>
+</div>
+
+<script>
+  // Spåren ritas nedåt och markören blinkar när raden syns. Av vid prefers-reduced-motion.
+  const items = document.querySelectorAll<HTMLElement>('.tl-item');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (items.length && !reduce && 'IntersectionObserver' in window) {
+    items.forEach((el) => el.classList.add('tl-pre'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('tl-in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.35 });
+    items.forEach((el) => io.observe(el));
+  }
+</script>

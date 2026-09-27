@@ -4,6 +4,7 @@ import { SITE } from '../config';
 import { CV } from '../data/cv';
 import { cases } from '../lib/cases';
 import { url } from '../lib/url';
+import Timeline from '../components/Timeline.astro';
 
 // [platshållare] i datan visas som gul markering tills den är ifylld.
 const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -32,26 +33,8 @@ const hasEmail = !SITE.email.startsWith('[');
 
   <section class="wrap sec cv-sec">
     <div class="sec-in">
-      <span class="lbl">01<span class="sig">|</span> erfarenhet</span>
-      <ol class="cv-list">
-        {CV.experience.map((e) => (
-          <li class="cv-row">
-            <span class="cv-period" set:html={ph(e.period)} />
-            <div class="cv-main">
-              <h2><span set:html={ph(e.role)} /><span class="cv-org"> <span class="sig">|</span> <span set:html={ph(e.org)} /></span></h2>
-              <p set:html={ph(e.text)} />
-            </div>
-            {e.cases.length > 0 && (
-              <div class="cv-cases">
-                <span class="lbl">case</span>
-                {e.cases.filter((s) => caseBySlug[s]).map((s) => (
-                  <a href={url(`/case/${s}/`)}>{caseBySlug[s].data.title} <span class="sig">|</span> →</a>
-                ))}
-              </div>
-            )}
-          </li>
-        ))}
-      </ol>
+      <span class="lbl">01<span class="sig">|</span> tidslinje</span>
+      <Timeline />
     </div>
   </section>
 
@@ -70,23 +53,9 @@ const hasEmail = !SITE.email.startsWith('[');
   </section>
 
   <section class="wrap sec cv-sec">
-    <div class="sec-in">
-      <span class="lbl">03<span class="sig">|</span> utmärkelser</span>
-      <ol class="cv-list">
-        {CV.awards.map((a) => (
-          <li class="cv-row">
-            <span class="cv-period">{a.year}</span>
-            <div class="cv-main"><h2>{a.title}</h2><p>{a.text}</p></div>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  <section class="wrap sec cv-sec">
     <div class="cv-two">
       <div class="sec-in">
-        <span class="lbl">04<span class="sig">|</span> utbildning</span>
+        <span class="lbl">03<span class="sig">|</span> utbildning</span>
         <ol class="cv-list cv-list-s">
           {CV.education.map((e) => (
             <li class="cv-row">
@@ -97,7 +66,7 @@ const hasEmail = !SITE.email.startsWith('[');
         </ol>
       </div>
       <div class="sec-in">
-        <span class="lbl">05<span class="sig">|</span> språk</span>
+        <span class="lbl">04<span class="sig">|</span> språk</span>
         <ol class="cv-list cv-list-s">
           {CV.languages.map((l) => (
             <li class="cv-row">
