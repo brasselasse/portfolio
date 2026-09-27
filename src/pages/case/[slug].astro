@@ -1,0 +1,73 @@
+---
+import Base from '../../layouts/Base.astro';
+import SearchChart from '../../components/SearchChart.astro';
+import { cases } from '../../lib/cases';
+import { url } from '../../lib/url';
+
+export function getStaticPaths() {
+  return cases.map((c, i) => ({
+    params: { slug: c.slug },
+    props: { index: i },
+  }));
+}
+
+const { index } = Astro.props as { index: number };
+const c = cases[index];
+const next = cases[(index + 1) % cases.length];
+const { data, Content } = c;
+
+const charts = import.meta.glob('../../data/*.json', { eager: true, import: 'default' });
+const chartData = data.chart ? (charts[`../../data/${data.chart}.json`] as any) : null;
+---
+<Base title={data.title} description={data.summary} image={data.cover} current="case">
+  <section class="wrap case-hero">
+    <nav class="crumb" aria-label="Brödsmulor">
+      <a href={url('/#case')}>case</a> <span class="sig">|</span> {data.title.toLowerCase()} <span class="sig">|</span> {data.type}
+    </nav>
+    <h1>{data.headline}</h1>
+    <p class="lead">{data.summary}</p>
+    <div class="meta">
+      <div><span class="lbl">roll</span>{data.role}</div>
+      <div><span class="lbl">leverans</span>{data.delivered}</div>
+      <div><span class="lbl">år</span>{data.year}</div>
+      {data.url && <div><span class="lbl">länk</span><a href={data.url}>{new URL(data.url).hostname.replace(/^www\./, '')} <span class="sig">|</span> →</a></div>}
+    </div>
+  </section>
+
+  <section class="wrap sec">
+    <img class="cover" src={url(data.cover)} alt={data.coverAlt} width="1600" height="1000" />
+  </section>
+
+  <section class="wrap sec">
+    <div class="prose">
+      <Content />
+    </div>
+  </section>
+
+  {(data.stats || chartData) && (
+    <section class="wrap sec">
+      <div class="sec-in">
+        {data.stats && (
+          <div class="big-stats">
+            {data.stats.map((s) => <div><b>{s.value}</b><span class="lbl">{s.label}</span></div>)}
+          </div>
+        )}
+        {chartData && <SearchChart data={chartData} />}
+      </div>
+    </section>
+  )}
+
+  <section slot="dark" class="wrap next-cta">
+    <div class="a">
+      <span class="lbl">nästa steg</span>
+      <h2>Vill du ha en sajt som fungerar lika bra?</h2>
+      <p class="lead" style="color:var(--d-muted)">Boka ett kostnadsfritt samtal på 30 minuter. Jag svarar inom 24 timmar på vardagar.</p>
+    </div>
+    <div class="b">
+      <a href={url('/#kontakt')} class="btn btn-p">Anlita mig →</a>
+      {next && next.slug !== c.slug && (
+        <a href={url(`/case/${next.slug}/`)} class="tlink" style="justify-content:center"><span>Nästa case: {next.data.title}</span> <span class="sig">|</span> →</a>
+      )}
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,63 @@
+---
+import { SITE } from '../config';
+interface Props { number?: string }
+const { number = '06' } = Astro.props;
+const hasEmail = !SITE.email.startsWith('[');
+const hasPhone = !SITE.phone.startsWith('[');
+---
+<section class="wrap contact" id="kontakt">
+  <span class="lbl" style="grid-column:1 / -1">{number}<span class="sig">|</span> kontakt</span>
+  <div class="a">
+    <h2>Behöver du en ny sajt?</h2>
+    <p class="lead">Boka ett kostnadsfritt samtal på 30 minuter. Jag svarar inom 24 timmar på vardagar.</p>
+    <div class="contact-list">
+      {hasEmail ? <a href={`mailto:${SITE.email}`}>{SITE.email}</a> : <span class="todo" style="color:#121212">[e-postadress]</span>}
+      {hasPhone ? <a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a> : <span class="todo" style="color:#121212">[telefonnummer]</span>}
+      {SITE.bookingUrl && <a href={SITE.bookingUrl}>Boka direkt i kalendern <span class="sig">|</span> →</a>}
+    </div>
+  </div>
+  <form id="contactForm" action={SITE.formEndpoint || undefined} method="post" data-endpoint={SITE.formEndpoint}>
+    <div class="f-row">
+      <label class="field" for="f-namn">Namn<input id="f-namn" name="namn" type="text" autocomplete="name" required /></label>
+      <label class="field" for="f-epost">E-post<input id="f-epost" name="epost" type="email" autocomplete="email" required /></label>
+    </div>
+    <label class="field" for="f-foretag">Företag<input id="f-foretag" name="foretag" type="text" autocomplete="organization" /></label>
+    <fieldset>
+      <legend>Vad behöver du hjälp med?</legend>
+      <div class="chips">
+        <label class="chip" for="c1"><input id="c1" type="checkbox" name="behov" value="Ny sajt" />Ny sajt</label>
+        <label class="chip" for="c2"><input id="c2" type="checkbox" name="behov" value="Grafisk identitet" />Grafisk identitet</label>
+        <label class="chip" for="c3"><input id="c3" type="checkbox" name="behov" value="SEO" />SEO</label>
+        <label class="chip" for="c4"><input id="c4" type="checkbox" name="behov" value="Annat" />Annat</label>
+      </div>
+    </fieldset>
+    <label class="field" for="f-medd">Berätta kort om projektet<textarea id="f-medd" name="meddelande" rows="4"></textarea></label>
+    <div class="btn-row" style="gap:20px">
+      <button type="submit" class="btn btn-p">Skicka →</button>
+      <span class="form-msg" id="formMsg" role="status" aria-live="polite"></span>
+    </div>
+  </form>
+</section>
+
+<script>
+  const form = document.getElementById('contactForm') as HTMLFormElement | null;
+  const msg = document.getElementById('formMsg');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    const endpoint = form.dataset.endpoint;
+    if (!endpoint) {
+      if (msg) msg.textContent = 'Formuläret är i testläge och skickar inget ännu.';
+      return;
+    }
+    if (msg) msg.textContent = 'Skickar …';
+    try {
+      const res = await fetch(endpoint, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+      if (!res.ok) throw new Error(String(res.status));
+      form.reset();
+      if (msg) msg.textContent = 'Tack! Jag hör av mig inom 24 timmar.';
+    } catch {
+      if (msg) msg.textContent = 'Det gick inte att skicka. Mejla mig direkt i stället.';
+    }
+  });
+</script>

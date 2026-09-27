@@ -1,0 +1,147 @@
+---
+import Base from '../layouts/Base.astro';
+import CaseCard from '../components/CaseCard.astro';
+import Contact from '../components/Contact.astro';
+import { cases } from '../lib/cases';
+import { SITE } from '../config';
+import { url } from '../lib/url';
+
+const flagship = cases.find((c) => c.data.flagship);
+const grid = cases.filter((c) => !c.data.flagship);
+const clients = ['Viaplay Group Radio', 'Radiospotcupen', 'Guldörat', 'Bloem', 'Matchedin', 'Deleo', 'CFVM'];
+const offers = [
+  ['Ny webbplats', 'Från behovsanalys och struktur till lansering – en sajt som säger rätt saker till rätt kunder.'],
+  ['Grafisk identitet', 'En sammanhållen profil som utgår från din logotyp: färger, typografi och bildspråk.'],
+  ['Webflow & CMS', 'Sajten byggs i Webflow med ett CMS du kan uppdatera själv, utan att vara beroende av en utvecklare.'],
+  ['SEO', 'Teknisk och praktisk sökoptimering från start, så att sajten går att hitta.'],
+  ['Kampanj- och landningssidor', 'Snabba, mätbara sidor för en kampanj, ett event eller en lansering.'],
+  ['Uppföljning & vidareutveckling', 'Mätning, förbättringar och nya sidor efter lansering – sajten ska bli bättre över tid.'],
+];
+const steps = ['analys', 'identitet', 'bygge', 'seo', 'utvärdering'];
+---
+<Base>
+  <section class="wrap hero" id="top">
+    <span class="lbl">digital art director <span class="sig">|</span> webbdesign <span class="sig">|</span> webflow <span class="sig">|</span> seo</span>
+    <div class="h-wm" role="img" aria-label="Lars Dahlberg">
+      <span class="h-bar" aria-hidden="true"></span>
+      <span class="h-clip" aria-hidden="true"><span class="h-in">Lars Dahlberg</span></span>
+    </div>
+    <div class="hero-row">
+      <h1>Från behovsanalys till färdig, sökbar sajt.</h1>
+      <div class="hero-side">
+        <p class="lead">Strategi, grafisk identitet, bygge i Webflow och SEO – under ett och samma tak. Du får en sajt du kan uppdatera själv.</p>
+        <div class="btn-row">
+          <a href="#kontakt" class="btn btn-p">Anlita mig →</a>
+          <a href="#case" class="btn btn-s">Se arbeten</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sec" aria-label="Uppdragsgivare" style="padding-bottom:clamp(56px,8vw,112px)">
+    <div class="clients">
+      <span class="lbl">har skapat sajter för</span>
+      <div>{clients.map((c) => <span>{c}</span>)}</div>
+    </div>
+  </section>
+
+  {flagship && (
+    <section class="wrap sec" id="eget-projekt">
+      <div class="sec-in">
+        <span class="lbl">01<span class="sig">|</span> eget projekt</span>
+        <div class="two">
+          <div class="a">
+            <h2 data-type>AImonkey – en svensk AI-guide jag byggt och driver själv.</h2>
+            <p>Jag saknade en sajt som samlade AI-nyheter och verktyg på svenska – så jag byggde den. Från idé och varumärke till innehållsstruktur, SEO och drift. Sajten samlar artiklar, mallar, ett promptbibliotek, en promptgenerator och ett nyhetsbrev – allt byggt i Webflow CMS och uppdaterat varje vecka.</p>
+            {flagship.data.stats && (
+              <div class="stats">
+                {flagship.data.stats.slice(0, 3).map((s) => <div class="stat"><b>{s.value}</b><span class="lbl">{s.label}</span></div>)}
+              </div>
+            )}
+            <div class="btn-row">
+              <a href={url(`/case/${flagship.slug}/`)} class="btn btn-s">Läs caset</a>
+              {flagship.data.url && <a href={flagship.data.url} class="tlink"><span>Besök aimonkey.se</span> <span class="sig">|</span> →</a>}
+            </div>
+          </div>
+          <div class="b">
+            <img class="cover" src={url(flagship.data.cover)} alt={flagship.data.coverAlt} width="1600" height="1000" />
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="wrap sec" id="tjanster">
+    <div class="sec-in">
+      <span class="lbl">02<span class="sig">|</span> det här gör jag</span>
+      <div class="split">
+        <h2 data-type>Det här kan jag hjälpa dig med.</h2>
+        <p class="lead" style="font-size:18px">Allt från en ny sajt till löpande förbättringar. Du tar det du behöver – vi börjar med ett kostnadsfritt samtal.</p>
+      </div>
+      <div class="process">
+        <span class="lbl">så arbetar jag – en person hela vägen, inget faller mellan stolarna</span>
+        <div>
+          {steps.map((s, i) => (
+            <>
+              {i > 0 && <span class="arr"> → </span>}
+              <span>{String(i + 1).padStart(2, '0')}<span class="sig">|</span> {s}</span>
+            </>
+          ))}
+        </div>
+      </div>
+      <div class="offers">
+        {offers.map(([t, d], i) => (
+          <div class="offer reveal">
+            <span class="lbl">{String(i + 1).padStart(2, '0')}<span class="sig">|</span></span>
+            <div><h3>{t}</h3><p>{d}</p></div>
+          </div>
+        ))}
+      </div>
+      <a href="#kontakt" class="tlink"><span>Berätta vad du behöver</span> <span class="sig">|</span> →</a>
+    </div>
+  </section>
+
+  <section class="wrap sec" id="case">
+    <div class="sec-in">
+      <span class="lbl">03<span class="sig">|</span> utvalda case</span>
+      <h2 data-type>Utvalt arbete</h2>
+      <div class="cases">
+        {grid.map((c) => <CaseCard slug={c.slug} data={c.data} />)}
+      </div>
+      <div class="more">
+        <span>Fler projekt: Radiospotcupen <span class="sig">|</span> Deleo <span class="sig">|</span> CFVM</span>
+        {flagship && <a href={url(`/case/${flagship.slug}/`)} class="tlink"><span>Läs AImonkey-caset</span> <span class="sig">|</span> →</a>}
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap sec" aria-label="Kundcitat">
+    <figure class="quote">
+      <span class="lbl">04<span class="sig">|</span> omdöme</span>
+      <div>
+        <blockquote><span class="todo">”[Kundcitat – en till två meningar om resultatet eller samarbetet]”</span></blockquote>
+        <figcaption class="lbl">[namn] <span class="sig">|</span> [roll, företag]</figcaption>
+      </div>
+    </figure>
+  </section>
+
+  <section class="wrap sec about" id="om">
+    <div class="sec-in">
+      <span class="lbl">05<span class="sig">|</span> om mig</span>
+      <div class="two">
+        <div class="a ph"><span class="lbl">[porträtt, svartvitt]</span></div>
+        <div class="b" style="display:flex;flex-direction:column;gap:24px;align-self:start">
+          <h2 data-type>Hej, jag heter Lars.</h2>
+          <p class="lead">Jag är digital art director och tar webbprojekt från första analys till färdig, sökbar sajt.</p>
+          <p>Jag gör behovsanalysen, formger den grafiska identiteten, bygger i Webflow med kunskap i HTML, CSS och JavaScript, och sköter SEO och uppföljning. Du har en person att prata med genom hela projektet – och en sajt du kan uppdatera själv när den är klar.</p>
+          <div class="links">
+            <a href={SITE.linkedin} class="tlink"><span>LinkedIn</span> <span class="sig">|</span> →</a>
+            {SITE.cvUrl && <a href={url(SITE.cvUrl)} class="tlink"><span>Rekryterare? Ladda ner mitt CV</span> <span class="sig">|</span> →</a>}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Contact slot="dark" number="06" />
+</Base>

@@ -1,0 +1,74 @@
+---
+// Stapeldiagram över visningar i Google per vecka, ritat som SVG vid bygget.
+interface Week { week: string; clicks: number; impressions: number; position: number | null }
+interface Props { data: { source: string; period: string; totals: { impressions: number; clicks: number; pages: number }; weeks: Week[] } }
+const { data } = Astro.props;
+
+const W = 1296, H = 320, L = 60, R = 8, T = 24, B = 36;
+const pw = W - L - R, ph = H - T - B;
+const max = Math.max(...data.weeks.map((w) => w.impressions));
+const ymax = Math.ceil(max / 1500) * 1500;
+const ticks = Array.from({ length: ymax / 1500 + 1 }, (_, i) => i * 1500);
+const n = data.weeks.length, slot = pw / n, bw = slot - 4;
+const months = ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+const nf = (v: number) => v.toLocaleString('sv-SE');
+const y = (v: number) => T + ph - (ph * v) / ymax;
+
+const bars = data.weeks.map((w, i) => {
+  const [a, b] = w.week.split(' - ').map((s) => new Date(s.trim()));
+  const x = L + i * slot + 2, top = y(w.impressions), r = Math.min(4, T + ph - top, bw / 2);
+  const d = `M${x},${T + ph}V${top + r}Q${x},${top} ${x + r},${top}H${x + bw - r}Q${x + bw},${top} ${x + bw},${top + r}V${T + ph}Z`;
+  const pos = w.position === null ? '–' : String(w.position).replace('.', ',');
+  const tip = `${a.getDate()} ${months[a.getMonth()]}–${b.getDate()} ${months[b.getMonth()]}: ${nf(w.impressions)} visningar, ${w.clicks} klick, snittposition ${pos}`;
+  return { x, d, tip, month: a.getMonth(), startDay: a.getDate() };
+});
+const monthLabels: { x: number; label: string }[] = [];
+let seen = -1;
+bars.forEach((b, i) => {
+  if (b.month !== seen && (i === 0 || b.startDay <= 7)) { seen = b.month; monthLabels.push({ x: b.x, label: months[b.month] }); }
+});
+const first = data.weeks[1], last = data.weeks[n - 2];
+const directLabels = [
+  { x: L + 1 * slot + 2 + bw / 2, y: y(first.impressions) - 8, text: nf(first.impressions) },
+  { x: L + (n - 2) * slot + 2 + bw / 2, y: y(last.impressions) - 8, text: nf(last.impressions) },
+];
+const aria = `Visningar i Google per vecka, ${data.period}. Ökar från ${nf(first.impressions)} till ${nf(last.impressions)} i veckan.`;
+---
+<div class="chart">
+  <div class="chart-head">
+    <b>Visningar i Google per vecka</b>
+    <span class="lbl">{nf(data.totals.impressions)} visningar <span class="sig">|</span> {data.totals.clicks} klick <span class="sig">|</span> {data.totals.pages} sidor i sök</span>
+  </div>
+  <div class="chart-box">
+    <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={aria}>
+      {ticks.map((t) => (
+        <>
+          <line x1={L} x2={W - R} y1={y(t)} y2={y(t)} stroke="#D8D4CC" stroke-width="1" />
+          <text x={L - 10} y={y(t) + 4} text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#5A5A5A">{nf(t)}</text>
+        </>
+      ))}
+      {bars.map((b, i) => (
+        <g>
+          <title>{b.tip}</title>
+          <rect x={L + i * slot} y={T} width={slot} height={ph} fill="transparent" />
+          <path class="bar" d={b.d} />
+        </g>
+      ))}
+      {monthLabels.map((m) => <text x={m.x} y={H - 12} font-family="JetBrains Mono, monospace" font-size="11" fill="#5A5A5A">{m.label}</text>)}
+      {directLabels.map((l) => <text x={l.x} y={l.y} text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#121212">{l.text}</text>)}
+      <line x1={L} x2={W - R} y1={T + ph} y2={T + ph} stroke="#121212" stroke-width="1" />
+    </svg>
+  </div>
+  <details>
+    <summary class="lbl">visa som tabell</summary>
+    <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>vecka</th><th>visningar</th><th>klick</th><th>position</th></tr></thead>
+        <tbody>
+          {data.weeks.map((w) => <tr><td>{w.week}</td><td>{nf(w.impressions)}</td><td>{w.clicks}</td><td>{w.position === null ? '–' : String(w.position).replace('.', ',')}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </details>
+  <span class="lbl">källa: {data.source.toLowerCase()} <span class="sig">|</span> {data.period}</span>
+</div>

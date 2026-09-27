@@ -1,0 +1,20 @@
+---
+import { SITE } from '../config';
+import { url } from '../lib/url';
+const year = new Date().getFullYear();
+---
+<div class="dark">
+  <slot />
+  <footer class="foot">
+    <div class="wrap">
+      <a href={url('/')} class="ld" aria-label="Lars Dahlberg, till startsidan"><span aria-hidden="true">LD</span></a>
+      <nav aria-label="Sidfot">
+        <a href={url('/#case')}>Case</a>
+        <a href={url('/#tjanster')}>Tjänster</a>
+        <a href={SITE.linkedin}>LinkedIn</a>
+        {SITE.cvUrl && <a href={url(SITE.cvUrl)}>CV för rekryterare</a>}
+      </nav>
+      <span class="lbl">© {year} lars dahlberg <span class="sig">|</span> larsdahlberg.nu</span>
+    </div>
+  </footer>
+</div>

@@ -1,0 +1,111 @@
+---
+import '@fontsource/familjen-grotesk/400.css';
+import '@fontsource/familjen-grotesk/500.css';
+import '@fontsource/familjen-grotesk/600.css';
+import '@fontsource/jetbrains-mono/400.css';
+import '@fontsource/jetbrains-mono/500.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { SITE } from '../config';
+import { url } from '../lib/url';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  current?: 'case' | 'tjanster' | 'om';
+}
+const { title, description = SITE.description, image = '/img/aimonkey-omslag.webp', current } = Astro.props;
+const pageTitle = title ? `${title} – ${SITE.name}` : SITE.title;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+const ogImage = new URL(url(image), Astro.site);
+---
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    {!SITE.indexable && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href={url('/favicon.svg')} type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#F4F2EE" />
+    <script is:inline>document.documentElement.classList.add('js');</script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Hoppa till innehållet</a>
+    <Header current={current} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer>
+      <slot name="dark" />
+    </Footer>
+
+    <script>
+      const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // Header: namnet glider in bakom markören, markören skjuts ut till LD-blocket.
+      const hdr = document.getElementById('hdr');
+      const onScroll = () => hdr?.classList.toggle('compact', window.scrollY > 80);
+      addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+
+      // Mobilmeny
+      const btn = document.getElementById('menuBtn');
+      const menu = document.getElementById('mobileMenu');
+      const setMenu = (open: boolean) => {
+        if (!btn || !menu) return;
+        menu.hidden = !open;
+        btn.setAttribute('aria-expanded', String(open));
+        btn.textContent = open ? 'Stäng' : 'Meny';
+      };
+      btn?.addEventListener('click', () => setMenu(menu?.hidden ?? false));
+      menu?.addEventListener('click', (e) => {
+        if ((e.target as HTMLElement).closest('a')) setMenu(false);
+      });
+
+      // Sektionsrubriker skrivs ut när de kommer i bild.
+      if (!reduce && 'IntersectionObserver' in window) {
+        document.querySelectorAll<HTMLElement>('h2[data-type]').forEach((h) => {
+          if (h.getBoundingClientRect().top < innerHeight) return;
+          const full = h.textContent ?? '';
+          h.setAttribute('aria-label', full);
+          h.style.minHeight = h.offsetHeight + 'px';
+          h.innerHTML = '<span class="tx" aria-hidden="true"></span><span class="cur" aria-hidden="true"></span>';
+          h.classList.add('typed-wait');
+          const scope = h.closest('.sec-in') ?? h.parentElement!;
+          const rev = Array.from(scope.querySelectorAll<HTMLElement>('.reveal'));
+          rev.forEach((el) => el.classList.add('pre-reveal'));
+          const io = new IntersectionObserver((entries) => {
+            if (!entries.some((en) => en.isIntersecting)) return;
+            io.disconnect();
+            setTimeout(() => {
+              h.classList.replace('typed-wait', 'typing');
+              const tx = h.querySelector('.tx')!;
+              let i = 0;
+              const iv = setInterval(() => {
+                tx.textContent = full.slice(0, ++i);
+                if (i >= full.length) {
+                  clearInterval(iv);
+                  h.classList.replace('typing', 'typed-wait');
+                  rev.forEach((el, k) => setTimeout(() => el.classList.remove('pre-reveal'), 120 * k));
+                  setTimeout(() => { h.classList.remove('typed-wait'); h.style.minHeight = ''; }, 3000);
+                }
+              }, 45);
+            }, 1200);
+          }, { threshold: 0.6 });
+          io.observe(h);
+        });
+      }
+    </script>
+  </body>
+</html>
