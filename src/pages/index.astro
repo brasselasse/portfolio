@@ -54,10 +54,10 @@ const jsonLd = [
 <Base jsonLd={jsonLd}>
   <section class="wrap hero" id="top">
     <span class="lbl">digital art director <span class="sig">|</span> webbdesign <span class="sig">|</span> webflow <span class="sig">|</span> seo</span>
-    <div class="h-wm" role="img" aria-label="Lars Dahlberg">
-      <span class="h-bar" aria-hidden="true"></span>
-      <span class="h-clip" aria-hidden="true"><span class="h-in">Lars Dahlberg</span></span>
-    </div>
+    <p class="h-roll" data-roll={JSON.stringify(steps)}>
+      <span class="visually-hidden">Så arbetar jag: {steps.map((s, i) => `${String(i + 1).padStart(2, '0')} ${s}`).join(', ')}.</span>
+      <span class="h-num" aria-hidden="true">01<span class="sig">|</span></span><span class="h-word" aria-hidden="true">{steps[0]}</span><span class="h-cur" aria-hidden="true"></span>
+    </p>
     <div class="hero-row">
       <h1>Från behovsanalys till färdig, sökbar sajt.</h1>
       <div class="hero-side">
@@ -177,3 +177,34 @@ const jsonLd = [
 
   <Contact slot="dark" number="06" />
 </Base>
+
+<script>
+  // Hero: stegen i processen skrivs ut bokstav för bokstav, står kvar, raderas och nästa växer fram.
+  const roll = document.querySelector<HTMLElement>('.h-roll');
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (roll && !reduce) {
+    const words: string[] = JSON.parse(roll.dataset.roll ?? '[]');
+    const word = roll.querySelector<HTMLElement>('.h-word')!;
+    const num = roll.querySelector<HTMLElement>('.h-num')!;
+    const TYPE = 110, ERASE = 55, HOLD = 1800, GAP = 350, START = 1100;
+    const wait = (ms: number) => new Promise((r) => setTimeout(r, ms));
+    const setNum = (i: number) => (num.innerHTML = `${String(i + 1).padStart(2, '0')}<span class="sig">|</span>`);
+    word.textContent = '';
+    roll.classList.add('rolling', 'idle');
+    (async () => {
+      await wait(START);
+      for (let i = 0; ; i = (i + 1) % words.length) {
+        const w = words[i];
+        setNum(i);
+        roll.classList.remove('idle');
+        for (let k = 1; k <= w.length; k++) { word.textContent = w.slice(0, k); await wait(TYPE); }
+        roll.classList.add('idle');
+        await wait(HOLD);
+        roll.classList.remove('idle');
+        for (let k = w.length - 1; k >= 0; k--) { word.textContent = w.slice(0, k); await wait(ERASE); }
+        roll.classList.add('idle');
+        await wait(GAP);
+      }
+    })();
+  }
+</script>
