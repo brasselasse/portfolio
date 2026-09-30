@@ -62,7 +62,7 @@ p { margin: 0; }
 .site-header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--paper); border-bottom: 2px solid var(--ink); }
 .site-header .bar { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding-block: 18px; transition: padding .45s var(--ease); }
 .site-header.compact .bar { padding-block: 10px; }
-.brand { position: relative; display: inline-block; height: 1.26em; font-size: 28px; font-weight: 600; letter-spacing: -.04em; line-height: 1; font-kerning: none; white-space: nowrap; text-decoration: none; color: var(--ink); }
+.brand { position: relative; display: inline-block; height: 1.26em; font-size: 38px; font-weight: 600; letter-spacing: -.04em; line-height: 1; font-kerning: none; white-space: nowrap; text-decoration: none; color: var(--ink); }
 .b-blk { position: absolute; z-index: 2; left: 0; top: .11em; width: var(--cursor-width); height: var(--cursor-height); background: var(--signal); overflow: hidden; transition: width .5s var(--ease); }
 .b-ld { position: absolute; left: .1333em; top: -.05em; line-height: 1; color: var(--on-signal-mark); transform: translateX(-1.264em); transition: transform .5s var(--ease); }
 .b-clip { display: inline-block; overflow: hidden; margin-left: var(--cursor-width); padding: .06em .06em .2em var(--cursor-gap); vertical-align: top; }
@@ -228,7 +228,7 @@ summary { cursor: pointer; min-height: 44px; display: flex; align-items: center;
 @media (max-width: 900px) {
   .nav { display: none; }
   .mob { display: flex; }
-  .brand { font-size: 21px; }
+  .brand { font-size: 27px; }
   .hero-row h1, .hero-side, .split > :first-child, .split > :last-child, .two > .a, .two > .b,
   .quote > .lbl, .quote > div, .contact .a, .contact form, .contact .tally-wrap, .next-cta .a, .next-cta .b { grid-column: 1 / -1; }
   .offers, .cases { grid-template-columns: minmax(0, 1fr); }
