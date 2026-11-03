@@ -16,7 +16,7 @@ export interface CaseData {
   stats?: { value: string; label: string }[];
   seoTitle?: string; // Titel i Google, utan " | Lars Dahlberg" (max ~45 tecken)
   seoDescription?: string; // Beskrivning i Google (max ~155 tecken)
-  chart?: string; // Namn på datafil i src/data, t.ex. "aimonkey-search"
+  chart?: string | string[]; // Datafil(er) i src/data, t.ex. "aimonkey-search" – flera visas i ordning
 }
 
 type Mod = { frontmatter: CaseData; Content: any; file: string };

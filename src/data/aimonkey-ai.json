@@ -1,0 +1,135 @@
+{
+  "source": "Google Search Console, generativ AI",
+  "period": "18 maj – 31 okt 2026",
+  "relative": true,
+  "lastComplete": true,
+  "title": "Visningar i Googles AI-svar per vecka, jämfört med starten",
+  "baselineNote": "snittet för de fyra första hela veckorna = 0 %",
+  "summary": [
+    {
+      "text": "+1 150 % AI-visningar"
+    }
+  ],
+  "weeks": [
+    {
+      "week": "2026-05-18 - 2026-05-23",
+      "change": -45,
+      "position": null
+    },
+    {
+      "week": "2026-05-24 - 2026-05-30",
+      "change": 9,
+      "position": null
+    },
+    {
+      "week": "2026-05-31 - 2026-06-06",
+      "change": 17,
+      "position": null
+    },
+    {
+      "week": "2026-06-07 - 2026-06-13",
+      "change": -14,
+      "position": null
+    },
+    {
+      "week": "2026-06-14 - 2026-06-20",
+      "change": -12,
+      "position": null
+    },
+    {
+      "week": "2026-06-21 - 2026-06-27",
+      "change": -12,
+      "position": null
+    },
+    {
+      "week": "2026-06-28 - 2026-07-04",
+      "change": 38,
+      "position": null
+    },
+    {
+      "week": "2026-07-05 - 2026-07-11",
+      "change": 24,
+      "position": null
+    },
+    {
+      "week": "2026-07-12 - 2026-07-18",
+      "change": 9,
+      "position": null
+    },
+    {
+      "week": "2026-07-19 - 2026-07-25",
+      "change": 0,
+      "position": null
+    },
+    {
+      "week": "2026-07-26 - 2026-08-01",
+      "change": 8,
+      "position": null
+    },
+    {
+      "week": "2026-08-02 - 2026-08-08",
+      "change": 30,
+      "position": null
+    },
+    {
+      "week": "2026-08-09 - 2026-08-15",
+      "change": 85,
+      "position": null
+    },
+    {
+      "week": "2026-08-16 - 2026-08-22",
+      "change": 133,
+      "position": null
+    },
+    {
+      "week": "2026-08-23 - 2026-08-29",
+      "change": 173,
+      "position": null
+    },
+    {
+      "week": "2026-08-30 - 2026-09-05",
+      "change": 217,
+      "position": null
+    },
+    {
+      "week": "2026-09-06 - 2026-09-12",
+      "change": 221,
+      "position": null
+    },
+    {
+      "week": "2026-09-13 - 2026-09-19",
+      "change": 389,
+      "position": null
+    },
+    {
+      "week": "2026-09-20 - 2026-09-26",
+      "change": 556,
+      "position": null
+    },
+    {
+      "week": "2026-09-27 - 2026-10-03",
+      "change": 656,
+      "position": null
+    },
+    {
+      "week": "2026-10-04 - 2026-10-10",
+      "change": 764,
+      "position": null
+    },
+    {
+      "week": "2026-10-11 - 2026-10-17",
+      "change": 1014,
+      "position": null
+    },
+    {
+      "week": "2026-10-18 - 2026-10-24",
+      "change": 1247,
+      "position": null
+    },
+    {
+      "week": "2026-10-25 - 2026-10-31",
+      "change": 1576,
+      "position": null
+    }
+  ]
+}

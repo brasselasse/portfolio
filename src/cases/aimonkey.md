@@ -13,7 +13,7 @@ seoTitle: "AImonkey – svensk AI-guide byggd i Webflow"
 seoDescription: "Case: AImonkey, en svensk guide till AI med promptgenerator. Idé, design, bygge i Webflow, SEO och drift – över 2 000 % fler visningar i Google på sju månader."
 order: 1
 flagship: true
-chart: aimonkey-search
+chart: [aimonkey-search, aimonkey-ai]
 stats:
   - { value: "56", label: "artiklar och nyheter" }
   - { value: "40", label: "ai-mallar" }
@@ -86,6 +86,16 @@ Sajten har varit live i sju månader. Innehållsbasen arbetar varje dag – och 
 - [Gratis eller betald AI?](https://www.aimonkey.se/artiklar/gratis-eller-betald-ai-nyborjare) rankar på plats 6,5, och [LinkedIn-mallen](https://www.aimonkey.se/ai-mallar/optimera-din-linkedin-profil-med-ai-den-kompletta-guiden-2026) får nästan var tolfte visning att klicka (7,7&nbsp;%).
 - [Promptgeneratorn](https://www.aimonkey.se/promptgeneratorn) – sajtens eget verktyg – klickas av 2,4&nbsp;% av dem som ser den i sök, fyra gånger sajtens snitt.
 - Den strukturerade datan fungerar: **recensionsstjärnor** visas vid nästan var tionde visning i sökresultaten (9,5&nbsp;%).
+
+### Syns i AI-svaren
+
+Google visar allt oftare AI-genererade svar högst upp i sökresultatet. Där behöver innehållet vara tydligt nog att citeras – och det är det.
+
+- **+1 150 % visningar i Googles AI-svar** de senaste fyra veckorna jämfört med de fyra första hela veckorna i maj och juni.
+- AI-svaren motsvarar nu **12 %** av sajtens vanliga synlighet i Google, upp från 4 % i slutet av juli.
+- **Ordlistan citeras gärna:** AI-termerna står för 27 % av visningarna i AI-svaren, mot 18 % i vanlig sökning. Korta, tydliga definitioner är precis vad AI-svaren plockar upp.
+- [Verktygsöversikten](https://www.aimonkey.se/ai-verktyg) är den enskilda sida som syns mest även här, med drygt en femtedel av AI-visningarna.
+- 97&nbsp;% av AI-visningarna kommer från Sverige.
 
 ### Härnäst
 

@@ -19,7 +19,7 @@ const next = cases[(index + 1) % cases.length];
 const { data, Content } = c;
 
 const charts = import.meta.glob('../../data/*.json', { eager: true, import: 'default' });
-const chartData = data.chart ? (charts[`../../data/${data.chart}.json`] as any) : null;
+const chartList = (data.chart ? [data.chart].flat() : []).map((n) => charts[`../../data/${n}.json`] as any).filter(Boolean);
 
 const pageUrl = new URL(url(`/case/${c.slug}/`), Astro.site).href;
 const jsonLd = {
@@ -61,7 +61,7 @@ const jsonLd = {
     </div>
   </section>
 
-  {(data.stats || chartData) && (
+  {(data.stats || chartList.length > 0) && (
     <section class="wrap sec">
       <div class="sec-in">
         {data.stats && (
@@ -69,7 +69,7 @@ const jsonLd = {
             {data.stats.map((s) => <div><b>{s.value}</b><span class="lbl">{s.label}</span></div>)}
           </div>
         )}
-        {chartData && (chartData.relative ? <GrowthChart data={chartData} /> : <SearchChart data={chartData} />)}
+        {chartList.map((d) => (d.relative ? <GrowthChart data={d} /> : <SearchChart data={d} />))}
       </div>
     </section>
   )}

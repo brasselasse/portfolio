@@ -5,7 +5,7 @@
 interface Week { week: string; change: number; position: number | null }
 interface Props {
   data: {
-    source: string; period: string; title: string; baselineNote: string;
+    source: string; period: string; title: string; baselineNote: string; lastComplete?: boolean;
     summary: { text: string }[];
     weeks: Week[];
   };
@@ -26,12 +26,13 @@ const nf = (v: number) => v.toLocaleString('sv-SE');
 const pct = (v: number) => `${v > 0 ? '+' : v < 0 ? '−' : '±'}${nf(Math.abs(v))} %`;
 const y = (v: number) => T + ph - (ph * v) / ymax;
 const posTxt = (p: number | null) => (p === null ? '–' : String(p).replace('.', ','));
+const hasPos = data.weeks.some((w) => w.position !== null);
 
 const bars = data.weeks.map((w, i) => {
   const [a, b] = w.week.split(' - ').map((s) => new Date(s.trim()));
   const x = L + i * slot + 2, top = y(idx(w)), r = Math.min(4, T + ph - top, bw / 2);
   const d = `M${x},${T + ph}V${top + r}Q${x},${top} ${x + r},${top}H${x + bw - r}Q${x + bw},${top} ${x + bw},${top + r}V${T + ph}Z`;
-  const tip = `${a.getDate()} ${months[a.getMonth()]}–${b.getDate()} ${months[b.getMonth()]}: ${pct(w.change)} visningar mot starten, snittposition ${posTxt(w.position)}`;
+  const tip = `${a.getDate()} ${months[a.getMonth()]}–${b.getDate()} ${months[b.getMonth()]}: ${pct(w.change)} visningar mot starten${w.position !== null ? `, snittposition ${posTxt(w.position)}` : ''}`;
   return { x, d, tip, month: a.getMonth(), startDay: a.getDate() };
 });
 const monthLabels: { x: number; label: string }[] = [];
@@ -39,8 +40,8 @@ let seen = -1;
 bars.forEach((b, i) => {
   if (b.month !== seen && (i === 0 || b.startDay <= 7)) { seen = b.month; monthLabels.push({ x: b.x, label: months[b.month] }); }
 });
-// Etikett på sista hela veckan (den allra sista kan vara ofullständig).
-const li = n - 2, last = data.weeks[li];
+// Etikett på sista hela veckan (den allra sista kan vara ofullständig, om inte lastComplete).
+const li = data.lastComplete ? n - 1 : n - 2, last = data.weeks[li];
 const lastLabel = { x: L + li * slot + 2 + bw / 2, y: y(idx(last)) - 8, text: pct(last.change) };
 const aria = `${data.title}, ${data.period}. Den senaste hela veckan låg visningarna ${pct(last.change)} över starten.`;
 ---
@@ -70,9 +71,9 @@ const aria = `${data.title}, ${data.period}. Den senaste hela veckan låg visnin
     <summary class="lbl">visa som tabell</summary>
     <div style="overflow-x:auto">
       <table>
-        <thead><tr><th>vecka</th><th>visningar mot starten</th><th>position</th></tr></thead>
+        <thead><tr><th>vecka</th><th>visningar mot starten</th>{hasPos && <th>position</th>}</tr></thead>
         <tbody>
-          {data.weeks.map((w) => <tr><td>{w.week}</td><td>{pct(w.change)}</td><td>{posTxt(w.position)}</td></tr>)}
+          {data.weeks.map((w) => <tr><td>{w.week}</td><td>{pct(w.change)}</td>{hasPos && <td>{posTxt(w.position)}</td>}</tr>)}
         </tbody>
       </table>
     </div>
