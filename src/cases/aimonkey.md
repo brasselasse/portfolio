@@ -10,7 +10,7 @@ url: https://www.aimonkey.se
 cover: /img/aimonkey-omslag.webp
 coverAlt: AImonkeys startsida på dator och mobil
 seoTitle: "AImonkey – svensk AI-guide byggd i Webflow"
-seoDescription: "Case: AImonkey, en svensk guide till AI med promptgenerator. Idé, design, bygge i Webflow, SEO och drift – 15 gånger fler visningar i Google på ett halvår."
+seoDescription: "Case: AImonkey, en svensk guide till AI med promptgenerator. Idé, design, bygge i Webflow, SEO och drift – över 2 000 % fler visningar i Google på sju månader."
 order: 1
 flagship: true
 chart: aimonkey-search
@@ -73,18 +73,19 @@ Promptgeneratorn, promptboxarna och kopiera-funktionerna i promptbiblioteket är
 
 Innehållet svarar på det svenska användare faktiskt söker efter – nybörjarguider, jämförelser mellan AI-tjänster och förklaringar av begrepp. Ordlistan och artiklarna länkar till varandra, och varje målgrupp har en egen ingångssida. Strukturerad data ger recensionsstjärnor direkt i sökresultaten.
 
-## Sex månader in
+## Sju månader in
 
-Sajten har varit live i sex månader. Innehållsbasen arbetar redan varje dag – och synligheten i Google har femtondubblats.
+Sajten har varit live i sju månader. Innehållsbasen arbetar varje dag – och synligheten i Google har ökat med över 2 000 %.
 
 ### Tidiga signaler
 
-- **Femton gånger fler visningar:** 895 de första fyra hela veckorna, 13 225 de senaste fyra. Klicken ökade från 8 till 83.
-- **Snittposition 9,4** senaste veckan – sajten har tagit sig in på Googles förstasida.
-- Topp tio på breda sökord: **”grok”** (plats 7,3 – 8 188 visningar), **”gemini”** (7,3) och **”vilken ai är bäst”** (9,8), via [Grok-guiden](https://www.aimonkey.se/ai-verktyg/grok) och [verktygsöversikten](https://www.aimonkey.se/ai-verktyg).
-- [Gratis eller betald AI?](https://www.aimonkey.se/artiklar/gratis-eller-betald-ai-nyborjare) rankar på plats 6,5 och får vart femtionde visning att klicka (2&nbsp;%).
-- Den strukturerade datan fungerar: **recensionsstjärnor** har visats 5 615 gånger i sökresultaten.
-- [Promptgeneratorn](https://www.aimonkey.se/promptgeneratorn) – sajtens eget verktyg – hittas via sök (360 visningar).
+- **+2 173 % visningar** i Google de senaste fyra veckorna jämfört med de fyra första hela veckorna. Klicken ökade med **1 513 %** under samma period.
+- **Snittposition 10,1** de senaste fyra veckorna, ned från 18,0 i början av sommaren – sajten ligger i gränslandet till Googles förstasida, och på mobilen redan där (9,1 sett över tre månader).
+- **Rätt publik:** 96&nbsp;% av visningarna kommer från Sverige.
+- Topp tio på breda sökord: **”grok”** (plats 8,0), **”gemini”** (6,9), **”vilken ai är bäst”** (9,2) och **”cursor”** (9,1), via [Grok-guiden](https://www.aimonkey.se/ai-verktyg/grok) och [verktygsöversikten](https://www.aimonkey.se/ai-verktyg) – som ensam står för en femtedel av sajtens klick.
+- [Gratis eller betald AI?](https://www.aimonkey.se/artiklar/gratis-eller-betald-ai-nyborjare) rankar på plats 6,5, och [LinkedIn-mallen](https://www.aimonkey.se/ai-mallar/optimera-din-linkedin-profil-med-ai-den-kompletta-guiden-2026) får nästan var tolfte visning att klicka (7,7&nbsp;%).
+- [Promptgeneratorn](https://www.aimonkey.se/promptgeneratorn) – sajtens eget verktyg – klickas av 2,4&nbsp;% av dem som ser den i sök, fyra gånger sajtens snitt.
+- Den strukturerade datan fungerar: **recensionsstjärnor** visas vid nästan var tionde visning i sökresultaten (9,5&nbsp;%).
 
 ### Härnäst
 

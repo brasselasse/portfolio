@@ -1,0 +1,81 @@
+---
+// Stapeldiagram över förändring i Google-visningar per vecka, i procent mot starten.
+// Används när datafilen har "relative": true – inga faktiska volymer visas eller lagras.
+// Varje vecka: change = procentuell förändring mot snittet för de fyra första hela veckorna.
+interface Week { week: string; change: number; position: number | null }
+interface Props {
+  data: {
+    source: string; period: string; title: string; baselineNote: string;
+    summary: { text: string }[];
+    weeks: Week[];
+  };
+}
+const { data } = Astro.props;
+
+const W = 1296, H = 320, L = 60, R = 8, T = 24, B = 36;
+const pw = W - L - R, ph = H - T - B;
+// Staplarna ritas som index (start = 100) så att de alltid börjar vid noll.
+const idx = (w: Week) => w.change + 100;
+const max = Math.max(...data.weeks.map(idx));
+const step = 500;
+const ymax = Math.ceil(max / step) * step;
+const grid = Array.from({ length: ymax / step + 1 }, (_, i) => i * step);
+const n = data.weeks.length, slot = pw / n, bw = slot - 4;
+const months = ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
+const nf = (v: number) => v.toLocaleString('sv-SE');
+const pct = (v: number) => `${v > 0 ? '+' : v < 0 ? '−' : '±'}${nf(Math.abs(v))} %`;
+const y = (v: number) => T + ph - (ph * v) / ymax;
+const posTxt = (p: number | null) => (p === null ? '–' : String(p).replace('.', ','));
+
+const bars = data.weeks.map((w, i) => {
+  const [a, b] = w.week.split(' - ').map((s) => new Date(s.trim()));
+  const x = L + i * slot + 2, top = y(idx(w)), r = Math.min(4, T + ph - top, bw / 2);
+  const d = `M${x},${T + ph}V${top + r}Q${x},${top} ${x + r},${top}H${x + bw - r}Q${x + bw},${top} ${x + bw},${top + r}V${T + ph}Z`;
+  const tip = `${a.getDate()} ${months[a.getMonth()]}–${b.getDate()} ${months[b.getMonth()]}: ${pct(w.change)} visningar mot starten, snittposition ${posTxt(w.position)}`;
+  return { x, d, tip, month: a.getMonth(), startDay: a.getDate() };
+});
+const monthLabels: { x: number; label: string }[] = [];
+let seen = -1;
+bars.forEach((b, i) => {
+  if (b.month !== seen && (i === 0 || b.startDay <= 7)) { seen = b.month; monthLabels.push({ x: b.x, label: months[b.month] }); }
+});
+// Etikett på sista hela veckan (den allra sista kan vara ofullständig).
+const li = n - 2, last = data.weeks[li];
+const lastLabel = { x: L + li * slot + 2 + bw / 2, y: y(idx(last)) - 8, text: pct(last.change) };
+const aria = `${data.title}, ${data.period}. Den senaste hela veckan låg visningarna ${pct(last.change)} över starten.`;
+---
+<div class="chart">
+  <div class="chart-head">
+    <b>{data.title}</b>
+    <span class="lbl">{data.summary.map((s, i) => <>{i > 0 && <> <span class="sig">|</span> </>}{s.text}</>)} <span class="sig">|</span> senaste fyra veckorna mot de första</span>
+  </div>
+  <div class="chart-box">
+    <svg viewBox={`0 0 ${W} ${H}`} role="img" aria-label={aria}>
+      {grid.map((t) => <line x1={L} x2={W - R} y1={y(t)} y2={y(t)} stroke="#D8D4CC" stroke-width="1" />)}
+      <line x1={L} x2={W - R} y1={y(100)} y2={y(100)} stroke="#E8491D" stroke-width="1" stroke-dasharray="4 4" />
+      <text x={L - 10} y={y(100) + 4} text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="#5A5A5A">start</text>
+      {bars.map((b, i) => (
+        <g>
+          <title>{b.tip}</title>
+          <rect x={L + i * slot} y={T} width={slot} height={ph} fill="transparent" />
+          <path class="bar" d={b.d} />
+        </g>
+      ))}
+      {monthLabels.map((m) => <text x={m.x} y={H - 12} font-family="JetBrains Mono, monospace" font-size="11" fill="#5A5A5A">{m.label}</text>)}
+      <text x={lastLabel.x} y={lastLabel.y} text-anchor="end" font-family="JetBrains Mono, monospace" font-size="12" fill="#121212">{lastLabel.text}</text>
+      <line x1={L} x2={W - R} y1={T + ph} y2={T + ph} stroke="#121212" stroke-width="1" />
+    </svg>
+  </div>
+  <details>
+    <summary class="lbl">visa som tabell</summary>
+    <div style="overflow-x:auto">
+      <table>
+        <thead><tr><th>vecka</th><th>visningar mot starten</th><th>position</th></tr></thead>
+        <tbody>
+          {data.weeks.map((w) => <tr><td>{w.week}</td><td>{pct(w.change)}</td><td>{posTxt(w.position)}</td></tr>)}
+        </tbody>
+      </table>
+    </div>
+  </details>
+  <span class="lbl">källa: {data.source.toLowerCase()} <span class="sig">|</span> {data.period} <span class="sig">|</span> {data.baselineNote}</span>
+</div>

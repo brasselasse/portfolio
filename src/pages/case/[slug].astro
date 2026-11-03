@@ -1,6 +1,7 @@
 ---
 import Base from '../../layouts/Base.astro';
 import SearchChart from '../../components/SearchChart.astro';
+import GrowthChart from '../../components/GrowthChart.astro';
 import { cases } from '../../lib/cases';
 import { url } from '../../lib/url';
 import { SITE } from '../../config';
@@ -68,7 +69,7 @@ const jsonLd = {
             {data.stats.map((s) => <div><b>{s.value}</b><span class="lbl">{s.label}</span></div>)}
           </div>
         )}
-        {chartData && <SearchChart data={chartData} />}
+        {chartData && (chartData.relative ? <GrowthChart data={chartData} /> : <SearchChart data={chartData} />)}
       </div>
     </section>
   )}

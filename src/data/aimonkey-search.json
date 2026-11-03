@@ -1,173 +1,172 @@
 {
   "source": "Google Search Console",
-  "period": "23 mars – 24 sep 2026",
-  "totals": {
-    "impressions": 40319,
-    "clicks": 213,
-    "pages": 614
-  },
+  "period": "23 mars – 22 okt 2026",
+  "relative": true,
+  "title": "Visningar i Google per vecka, jämfört med starten",
+  "baselineNote": "snittet för de fyra första hela veckorna = 0 %",
+  "summary": [
+    {
+      "text": "+2 173 % visningar"
+    },
+    {
+      "text": "+1 513 % klick"
+    }
+  ],
   "weeks": [
     {
       "week": "2026-03-23 - 2026-03-28",
-      "clicks": 1,
-      "impressions": 14,
+      "change": -94,
       "position": null
     },
     {
       "week": "2026-03-29 - 2026-04-04",
-      "clicks": 4,
-      "impressions": 124,
+      "change": -45,
       "position": 13.9
     },
     {
       "week": "2026-04-05 - 2026-04-11",
-      "clicks": 0,
-      "impressions": 153,
+      "change": -32,
       "position": 16.9
     },
     {
       "week": "2026-04-12 - 2026-04-18",
-      "clicks": 1,
-      "impressions": 298,
+      "change": 33,
       "position": 23.5
     },
     {
       "week": "2026-04-19 - 2026-04-25",
-      "clicks": 3,
-      "impressions": 320,
+      "change": 43,
       "position": 20.1
     },
     {
       "week": "2026-04-26 - 2026-05-02",
-      "clicks": 0,
-      "impressions": 283,
+      "change": 26,
       "position": 22.7
     },
     {
       "week": "2026-05-03 - 2026-05-09",
-      "clicks": 3,
-      "impressions": 1236,
+      "change": 452,
       "position": 13.8
     },
     {
       "week": "2026-05-10 - 2026-05-16",
-      "clicks": 0,
-      "impressions": 886,
+      "change": 296,
       "position": 17.7
     },
     {
       "week": "2026-05-17 - 2026-05-23",
-      "clicks": 4,
-      "impressions": 874,
+      "change": 291,
       "position": 14.4
     },
     {
       "week": "2026-05-24 - 2026-05-30",
-      "clicks": 4,
-      "impressions": 1303,
+      "change": 482,
       "position": 13.7
     },
     {
       "week": "2026-05-31 - 2026-06-06",
-      "clicks": 6,
-      "impressions": 918,
+      "change": 310,
       "position": 18.1
     },
     {
       "week": "2026-06-07 - 2026-06-13",
-      "clicks": 4,
-      "impressions": 856,
+      "change": 283,
       "position": 20.2
     },
     {
       "week": "2026-06-14 - 2026-06-20",
-      "clicks": 3,
-      "impressions": 930,
+      "change": 316,
       "position": 24.6
     },
     {
       "week": "2026-06-21 - 2026-06-27",
-      "clicks": 6,
-      "impressions": 990,
+      "change": 342,
       "position": 23.7
     },
     {
       "week": "2026-06-28 - 2026-07-04",
-      "clicks": 9,
-      "impressions": 1271,
+      "change": 468,
       "position": 26.0
     },
     {
       "week": "2026-07-05 - 2026-07-11",
-      "clicks": 3,
-      "impressions": 1096,
+      "change": 390,
       "position": 26.8
     },
     {
       "week": "2026-07-12 - 2026-07-18",
-      "clicks": 6,
-      "impressions": 1258,
+      "change": 462,
       "position": 29.5
     },
     {
       "week": "2026-07-19 - 2026-07-25",
-      "clicks": 13,
-      "impressions": 1580,
+      "change": 606,
       "position": 18.7
     },
     {
       "week": "2026-07-26 - 2026-08-01",
-      "clicks": 6,
-      "impressions": 2225,
+      "change": 894,
       "position": 18.4
     },
     {
       "week": "2026-08-02 - 2026-08-08",
-      "clicks": 12,
-      "impressions": 2405,
+      "change": 975,
       "position": 16.4
     },
     {
       "week": "2026-08-09 - 2026-08-15",
-      "clicks": 16,
-      "impressions": 2677,
+      "change": 1096,
       "position": 20.3
     },
     {
       "week": "2026-08-16 - 2026-08-22",
-      "clicks": 14,
-      "impressions": 2859,
+      "change": 1178,
       "position": 17.1
     },
     {
       "week": "2026-08-23 - 2026-08-29",
-      "clicks": 12,
-      "impressions": 2538,
+      "change": 1034,
       "position": 16.6
     },
     {
       "week": "2026-08-30 - 2026-09-05",
-      "clicks": 18,
-      "impressions": 2483,
+      "change": 1010,
       "position": 16.1
     },
     {
       "week": "2026-09-06 - 2026-09-12",
-      "clicks": 19,
-      "impressions": 2673,
+      "change": 1095,
       "position": 15.3
     },
     {
       "week": "2026-09-13 - 2026-09-19",
-      "clicks": 23,
-      "impressions": 4275,
+      "change": 1811,
       "position": 11.4
     },
     {
-      "week": "2026-09-20 - 2026-09-24",
-      "clicks": 23,
-      "impressions": 3794,
-      "position": 9.4
+      "week": "2026-09-20 - 2026-09-26",
+      "change": 2153,
+      "position": 9.7
+    },
+    {
+      "week": "2026-09-27 - 2026-10-03",
+      "change": 1691,
+      "position": 9.0
+    },
+    {
+      "week": "2026-10-04 - 2026-10-10",
+      "change": 1977,
+      "position": 10.4
+    },
+    {
+      "week": "2026-10-11 - 2026-10-17",
+      "change": 2261,
+      "position": 9.9
+    },
+    {
+      "week": "2026-10-18 - 2026-10-22",
+      "change": 2204,
+      "position": 10.8
     }
   ]
 }
