@@ -1,15 +1,15 @@
 {
   "source": "Google Search Console",
-  "period": "23 mars – 22 okt 2026",
+  "period": "23 mars – 31 okt 2026",
   "relative": true,
   "title": "Visningar i Google per vecka, jämfört med starten",
   "baselineNote": "snittet för de fyra första hela veckorna = 0 %",
   "summary": [
     {
-      "text": "+2 173 % visningar"
+      "text": "+2 456 % visningar"
     },
     {
-      "text": "+1 513 % klick"
+      "text": "+2 000 % klick"
     }
   ],
   "weeks": [
@@ -151,7 +151,7 @@
     {
       "week": "2026-09-27 - 2026-10-03",
       "change": 1691,
-      "position": 9.0
+      "position": 9.1
     },
     {
       "week": "2026-10-04 - 2026-10-10",
@@ -164,9 +164,15 @@
       "position": 9.9
     },
     {
-      "week": "2026-10-18 - 2026-10-22",
-      "change": 2204,
+      "week": "2026-10-18 - 2026-10-24",
+      "change": 2847,
       "position": 10.8
+    },
+    {
+      "week": "2026-10-25 - 2026-10-31",
+      "change": 2736,
+      "position": 10.7
     }
-  ]
+  ],
+  "lastComplete": true
 }

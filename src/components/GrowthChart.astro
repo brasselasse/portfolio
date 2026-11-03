@@ -18,7 +18,7 @@ const pw = W - L - R, ph = H - T - B;
 const idx = (w: Week) => w.change + 100;
 const max = Math.max(...data.weeks.map(idx));
 const step = 500;
-const ymax = Math.ceil(max / step) * step;
+const ymax = Math.ceil((max * 1.08) / step) * step; // luft ovanför för etiketten
 const grid = Array.from({ length: ymax / step + 1 }, (_, i) => i * step);
 const n = data.weeks.length, slot = pw / n, bw = slot - 4;
 const months = ['jan', 'feb', 'mar', 'apr', 'maj', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'];
@@ -42,7 +42,8 @@ bars.forEach((b, i) => {
 });
 // Etikett på sista hela veckan (den allra sista kan vara ofullständig, om inte lastComplete).
 const li = data.lastComplete ? n - 1 : n - 2, last = data.weeks[li];
-const lastLabel = { x: L + li * slot + 2 + bw / 2, y: y(idx(last)) - 8, text: pct(last.change) };
+const near = Math.max(idx(last), li > 0 ? idx(data.weeks[li - 1]) : 0);
+const lastLabel = { x: L + li * slot + 2 + bw, y: y(near) - 8, text: pct(last.change) };
 const aria = `${data.title}, ${data.period}. Den senaste hela veckan låg visningarna ${pct(last.change)} över starten.`;
 ---
 <div class="chart">

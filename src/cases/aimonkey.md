@@ -79,21 +79,21 @@ Sajten har varit live i sju månader. Innehållsbasen arbetar varje dag – och 
 
 ### Tidiga signaler
 
-- **+2 173 % visningar** i Google de senaste fyra veckorna jämfört med de fyra första hela veckorna. Klicken ökade med **1 513 %** under samma period.
-- **Snittposition 10,1** de senaste fyra veckorna, ned från 18,0 i början av sommaren – sajten ligger i gränslandet till Googles förstasida, och på mobilen redan där (9,1 sett över tre månader).
-- **Rätt publik:** 96&nbsp;% av visningarna kommer från Sverige.
-- Topp tio på breda sökord: **”grok”** (plats 8,0), **”gemini”** (6,9), **”vilken ai är bäst”** (9,2) och **”cursor”** (9,1), via [Grok-guiden](https://www.aimonkey.se/ai-verktyg/grok) och [verktygsöversikten](https://www.aimonkey.se/ai-verktyg) – som ensam står för en femtedel av sajtens klick.
-- [Gratis eller betald AI?](https://www.aimonkey.se/artiklar/gratis-eller-betald-ai-nyborjare) rankar på plats 6,5, och [LinkedIn-mallen](https://www.aimonkey.se/ai-mallar/optimera-din-linkedin-profil-med-ai-den-kompletta-guiden-2026) får nästan var tolfte visning att klicka (7,7&nbsp;%).
-- [Promptgeneratorn](https://www.aimonkey.se/promptgeneratorn) – sajtens eget verktyg – klickas av 2,4&nbsp;% av dem som ser den i sök, fyra gånger sajtens snitt.
-- Den strukturerade datan fungerar: **recensionsstjärnor** visas vid nästan var tionde visning i sökresultaten (9,5&nbsp;%).
+- **+2 456 % visningar** i Google de senaste fyra veckorna jämfört med de fyra första hela veckorna. Klicken ökade med **2 000 %** under samma period.
+- **Snittposition 10,5** de senaste fyra veckorna, ned från 18,1 i början av augusti – sajten ligger i gränslandet till Googles förstasida, och på mobilen redan där (9,6 sett över hela perioden).
+- **Rätt publik:** 94&nbsp;% av visningarna kommer från Sverige.
+- Topp tio på breda sökord: **”grok”** (plats 7,7), **”gemini”** (7,5), **”vilken ai är bäst”** (8,6) och **”cursor”** (9,6), via [Grok-guiden](https://www.aimonkey.se/ai-verktyg/grok) och [verktygsöversikten](https://www.aimonkey.se/ai-verktyg) – som ensam står för en femtedel av sajtens klick.
+- [Gratis eller betald AI?](https://www.aimonkey.se/artiklar/gratis-eller-betald-ai-nyborjare) rankar på plats 6,3, och [LinkedIn-mallen](https://www.aimonkey.se/ai-mallar/optimera-din-linkedin-profil-med-ai-den-kompletta-guiden-2026) får 6&nbsp;% av dem som ser den i sök att klicka – tio gånger sajtens snitt.
+- [Promptgeneratorn](https://www.aimonkey.se/promptgeneratorn) – sajtens eget verktyg – klickas av 2,9&nbsp;% av dem som ser den i sök, nästan fem gånger sajtens snitt.
+- Den strukturerade datan fungerar: **recensionsstjärnor** visas vid drygt var tionde visning i sökresultaten (10,6&nbsp;%).
 
 ### Syns i AI-svaren
 
 Google visar allt oftare AI-genererade svar högst upp i sökresultatet. Där behöver innehållet vara tydligt nog att citeras – och det är det.
 
 - **+1 150 % visningar i Googles AI-svar** de senaste fyra veckorna jämfört med de fyra första hela veckorna i maj och juni.
-- AI-svaren motsvarar nu **12 %** av sajtens vanliga synlighet i Google, upp från 4 % i slutet av juli.
-- **Ordlistan citeras gärna:** AI-termerna står för 27 % av visningarna i AI-svaren, mot 18 % i vanlig sökning. Korta, tydliga definitioner är precis vad AI-svaren plockar upp.
+- AI-svaren motsvarar nu **14 %** av sajtens vanliga synlighet i Google, upp från 4 % i början av augusti.
+- **Ordlistan citeras gärna:** AI-termerna står för 27 % av visningarna i AI-svaren, mot 22 % i vanlig sökning. Korta, tydliga definitioner är precis vad AI-svaren plockar upp.
 - [Verktygsöversikten](https://www.aimonkey.se/ai-verktyg) är den enskilda sida som syns mest även här, med drygt en femtedel av AI-visningarna.
 - 97&nbsp;% av AI-visningarna kommer från Sverige.
 
