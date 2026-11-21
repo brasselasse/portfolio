@@ -14,7 +14,7 @@ export const SITE = {
   bookingUrl: '', // t.ex. en Calendly-länk
   cvUrl: '/cv/', // digitalt CV
   // Sätt till true när sajten ska synas i Google (tar bort noindex).
-  indexable: false,
+  indexable: true,
   // Tally-formulär i kontaktsektionen (mappen Lars i Tally). Tom sträng = visa bara e-post.
   tallyFormId: 'VLgOgy',
 };

@@ -3,7 +3,7 @@ import { defineConfig } from 'astro/config';
 // När larsdahlberg.nu pekar hit: sätt CUSTOM_DOMAIN till true och lägg filen
 // public/CNAME med innehållet "larsdahlberg.nu". Då byggs sajten för roten "/".
 // Fram till dess publiceras den på brasselasse.github.io/portfolio.
-const CUSTOM_DOMAIN = false;
+const CUSTOM_DOMAIN = true;
 
 const site = CUSTOM_DOMAIN ? 'https://larsdahlberg.nu' : 'https://brasselasse.github.io';
 const base = CUSTOM_DOMAIN ? '/' : '/portfolio';
