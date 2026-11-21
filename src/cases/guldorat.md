@@ -57,7 +57,7 @@ För Guldöratdagen byggde jag ett schema över dagen, uppdelat på föreläsnin
 
 ## Resultatet
 
-Guldörat kan växla fokus med årshjulet och uppdatera program, talare och nomineringar själva i CMS:et, utan att röra designen.
+Sajten växlar fokus med årshjulet, och Guldörat uppdaterar själva program, talare och nomineringar i CMS:et – utan att röra designen.
 
 Söktrafiken visar att det fungerar. Under sommar och vinter är det lugnt, runt 50–100 klick från Google i veckan. När nomineringarna släpps och röstningen öppnar i slutet av augusti går trafiken upp till 6 000–9 000 klick i veckan, och under galaveckan i oktober 2025 kom nästan 14 000. Sajten tar emot topparna och lyfter rätt sak när de kommer: röstningssidorna ensamma har fått över 31 000 klick.
 

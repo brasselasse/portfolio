@@ -1,10 +1,10 @@
 ---
 title: AImonkey
 headline: AImonkey – guiden till AI på svenska som inte fanns.
-summary: Jag letade efter en sajt som samlade AI-nyheter och verktyg på svenska – och en promptgenerator som hjälper vanliga användare att komma igång. Den fanns inte. Så jag byggde den, och driver den själv.
+summary: Jag letade efter en sajt som samlade AI-nyheter och verktyg på svenska – och en promptgenerator som hjälper vanliga användare att komma igång. Den fanns inte. Så jag byggde den – och driver den i dag tillsammans med mitt AI-team.
 type: eget projekt
 year: "2026"
-role: Grundare – ensam bakom allt
+role: Grundare – idé, design, bygge och drift
 delivered: Idé, varumärke, design, Webflow, CMS, SEO, innehåll, drift
 url: https://www.aimonkey.se
 cover: /img/aimonkey-omslag.webp
@@ -32,11 +32,11 @@ Den andra luckan var själva användningen: många vet inte hur man formulerar e
 AImonkey samlar allt på ett ställe, sorterat efter vem du är och vad du vill göra. Apan är guiden genom djungeln – lekfull, men med innehåll som går att använda direkt.
 
 - **Promptgeneratorn** hjälper användaren att bygga en bra prompt steg för steg.
-- **Promptbiblioteket** har 264 färdiga prompter att kopiera för vardagliga uppgifter.
-- **AI-mallar** – 40 guidade upplägg, till exempel landningssidor, KPI-rapporter och AI-policyer.
+- **Promptbiblioteket** har över 400 färdiga prompter att kopiera för vardagliga uppgifter, och 17 färdiga flöden för större uppgifter.
+- **AI-mallar** – över 50 guidade upplägg, till exempel landningssidor, KPI-rapporter och AI-policyer.
 - **Artiklar och nyheter** – nybörjarguider, jämförelser och veckans AI-nyheter.
 - **Verktygsguider** för ChatGPT, Claude, Gemini, Grok med flera.
-- **AI-termer** – en svensk ordlista med 144 förklarade begrepp.
+- **AI-termer** – en svensk ordlista med 165 förklarade begrepp.
 - **Målgruppssidor** för nybörjare, marknadsföring, produktivitet, skapande och småföretag.
 - **Nyhetsbrev** med det senaste om AI.
 
@@ -113,6 +113,6 @@ Google visar allt oftare AI-genererade svar högst upp i sökresultatet. Där be
 
 ### Härnäst
 
-- Login med sparade prompter och mallar
+- Inloggning med sparade prompter och mallar
 - Fler kategorisidor för specifika användare
 - Samarbeten
