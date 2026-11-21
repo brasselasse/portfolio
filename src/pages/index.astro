@@ -147,6 +147,7 @@ const jsonLd = [
     </div>
   </section>
 
+  {/* Omdöme – dolt tills citaten finns. Ta bort kommentaren och numrera om (om mig 05, kontakt 06).
   <section class="wrap sec" aria-label="Kundcitat">
     <figure class="quote">
       <span class="lbl">04<span class="sig">|</span> omdöme</span>
@@ -157,15 +158,18 @@ const jsonLd = [
     </figure>
   </section>
 
+  */}
+
   <section class="wrap sec about" id="om">
     <div class="sec-in">
-      <span class="lbl">05<span class="sig">|</span> om mig</span>
+      <span class="lbl">04<span class="sig">|</span> om mig</span>
       <div class="two">
         <div class="a portrait"><img src={url('/img/lars-dahlberg-portratt.webp')} srcset={`${url('/img/lars-dahlberg-portratt-640.webp')} 640w, ${url('/img/lars-dahlberg-portratt.webp')} 1100w`} sizes="(max-width: 900px) 100vw, 40vw" width="1100" height="1375" alt="Porträtt av Lars Dahlberg" loading="lazy" decoding="async" /></div>
         <div class="b" style="display:flex;flex-direction:column;gap:24px;align-self:start">
           <h2 data-type>Hej, jag heter Lars.</h2>
           <p class="lead">Jag är digital art director och tar webbprojekt från första analys till färdig, sökbar sajt.</p>
           <p>Jag gör behovsanalysen, formger den grafiska identiteten, bygger i Webflow med kunskap i HTML, CSS och JavaScript, och sköter SEO och uppföljning. Du har en person att prata med genom hela projektet – och en sajt du kan uppdatera själv när den är klar.</p>
+          <p>Till vardags arbetar jag heltid som produktägare på Viaplay Group, där jag sedan 2010 ansvarar för radiobolagets digitala plattformar och interna system. Mina egna uppdrag och AImonkey driver jag vid sidan av, och erfarenheten från ett stort mediebolag följer med in i varje projekt.</p>
           <div class="links">
             <a href={SITE.linkedin} class="tlink"><span>LinkedIn</span> <span class="sig">|</span> →</a>
             {SITE.cvUrl && <a href={url(SITE.cvUrl)} class="tlink"><span>Rekryterare? Här är mitt CV</span> <span class="sig">|</span> →</a>}
@@ -175,7 +179,7 @@ const jsonLd = [
     </div>
   </section>
 
-  <Contact slot="dark" number="06" />
+  <Contact slot="dark" number="05" />
 </Base>
 
 <script>
