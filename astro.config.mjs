@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config';
 // Fram till dess publiceras den på brasselasse.github.io/portfolio.
 const CUSTOM_DOMAIN = true;
 
-const site = CUSTOM_DOMAIN ? 'https://larsdahlberg.nu' : 'https://brasselasse.github.io';
+const site = CUSTOM_DOMAIN ? 'https://www.larsdahlberg.nu' : 'https://brasselasse.github.io';
 const base = CUSTOM_DOMAIN ? '/' : '/portfolio';
 
 // Lägger till base-sökvägen på bilder och interna länkar i case-texterna,
