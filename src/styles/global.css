@@ -146,8 +146,11 @@ blockquote { margin: 0; font-size: clamp(26px, 3vw, 40px); font-weight: 500; let
 .links { display: flex; gap: 28px; flex-wrap: wrap; border-top: 1px solid var(--hairline); padding-top: 12px; }
 
 /* skrivna rubriker */
-.typing .cur, .typed-wait .cur { display: inline-block; width: var(--cursor-width); height: .9em; margin-left: .06em; vertical-align: -.08em; background: var(--signal); }
-.typed-wait .cur { animation: blink 1s steps(1) infinite; }
+/* Markören tar ingen plats, så texten flyttar sig inte när den skrivs ut */
+.typing .cur, .typed-wait .cur { position: relative; }
+.typing .cur::before, .typed-wait .cur::before { content: ""; position: absolute; left: .06em; bottom: -.08em; width: var(--cursor-width); height: .9em; background: var(--signal); }
+.typed-wait .cur::before { animation: blink 1s steps(1) infinite; }
+[data-type] .rest { visibility: hidden; }
 @keyframes blink { 0%, 49% { opacity: 1 } 50%, 100% { opacity: 0 } }
 .reveal { transition: opacity .5s ease, transform .6s cubic-bezier(.2, 0, .2, 1); }
 .pre-reveal { opacity: 0; transform: translateY(16px); }
@@ -244,7 +247,7 @@ summary { cursor: pointer; min-height: 44px; display: flex; align-items: center;
 @media (max-width: 480px) { .hdr-cta { display: none; } .stats { gap: 10px; } }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .js .h-bar, .js .h-in, .typed-wait .cur { animation: none; }
+  .js .h-bar, .js .h-in, .typed-wait .cur::before { animation: none; }
   .js .h-in { transform: none; }
   .b-blk, .b-ld, .b-name, .reveal, .site-header .bar { transition: none !important; }
 }

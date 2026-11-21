@@ -103,7 +103,9 @@ const ogImage = new URL(url(image), Astro.site);
           const full = h.textContent ?? '';
           h.setAttribute('aria-label', full);
           h.style.minHeight = h.offsetHeight + 'px';
-          h.innerHTML = '<span class="tx" aria-hidden="true"></span><span class="cur" aria-hidden="true"></span>';
+          // Hela texten finns från början (resten osynlig), så radbrytningarna ligger fast medan den skrivs ut.
+          const esc = (t: string) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;');
+          h.innerHTML = '<span aria-hidden="true"><span class="tx"></span><span class="cur"></span><span class="rest">' + esc(full) + '</span></span>';
           h.classList.add('typed-wait');
           const scope = h.closest('.sec-in') ?? h.parentElement!;
           const rev = Array.from(scope.querySelectorAll<HTMLElement>('.reveal'));
@@ -114,9 +116,11 @@ const ogImage = new URL(url(image), Astro.site);
             setTimeout(() => {
               h.classList.replace('typed-wait', 'typing');
               const tx = h.querySelector('.tx')!;
+              const rest = h.querySelector('.rest')!;
               let i = 0;
               const iv = setInterval(() => {
                 tx.textContent = full.slice(0, ++i);
+                rest.textContent = full.slice(i);
                 if (i >= full.length) {
                   clearInterval(iv);
                   h.classList.replace('typing', 'typed-wait');
