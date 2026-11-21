@@ -358,3 +358,16 @@ summary { cursor: pointer; min-height: 44px; display: flex; align-items: center;
   .tl-pre .tl-dot, .tl-pre .tl-year, .tl-pre .tl-body { opacity: 1; transform: none; }
 }
 @media (prefers-reduced-motion: reduce) { .tl-up, .tl-down, .tl-dot, .tl-year, .tl-body { transition: none !important; animation: none !important; } }
+
+/* Cookie-banner */
+.consent { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; background: var(--ink); color: var(--paper); border-top: 2px solid var(--signal); }
+.consent[hidden] { display: none; }
+.consent-in { max-width: 1440px; margin: 0 auto; padding: 18px var(--gutter); display: flex; align-items: center; justify-content: space-between; gap: 16px 32px; flex-wrap: wrap; }
+.consent p { margin: 0; font-size: 16px; line-height: 1.5; max-width: 62ch; }
+.consent .lbl { color: var(--d-muted); margin-right: 6px; }
+.consent-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.consent .btn { min-height: 46px; padding: 0 20px; font-size: 16px; }
+.consent .btn-p:hover { background: var(--paper); color: var(--ink); }
+.consent .btn-s { color: var(--paper); border-color: var(--paper); }
+.consent .btn-s:hover { background: var(--paper); color: var(--ink); }
+@media print { .consent { display: none !important; } }

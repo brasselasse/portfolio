@@ -1,0 +1,44 @@
+---
+// Enkel cookie-banner kopplad till Googles Consent Mode.
+// Standardläget (allt nekat) sätts i Base.astro innan Tag Manager laddas.
+// Valet sparas i localStorage ("ld-consent" = "granted" | "denied").
+---
+<div class="consent" id="consent" role="dialog" aria-live="polite" aria-label="Cookies" hidden>
+  <div class="consent-in">
+    <p>
+      <span class="lbl">cookies <span class="sig">|</span></span>
+      Jag använder Google Analytics för att se hur sajten används. Okej att sätta cookies för det?
+    </p>
+    <div class="consent-btns">
+      <button type="button" class="btn btn-p" data-consent="granted">Godkänn</button>
+      <button type="button" class="btn btn-s" data-consent="denied">Endast nödvändiga</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    var KEY = 'ld-consent';
+    var box = document.getElementById('consent');
+    var saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (e) {}
+    function apply(choice) {
+      var v = choice === 'granted' ? 'granted' : 'denied';
+      if (typeof gtag === 'function') gtag('consent', 'update', { analytics_storage: v });
+      (window.dataLayer = window.dataLayer || []).push({ event: 'consent_update', consent_analytics: v });
+    }
+    if (!saved) box.hidden = false;
+    box.addEventListener('click', function (e) {
+      var b = e.target.closest('[data-consent]');
+      if (!b) return;
+      var choice = b.getAttribute('data-consent');
+      try { localStorage.setItem(KEY, choice); } catch (err) {}
+      apply(choice);
+      box.hidden = true;
+    });
+    // Länken "Cookie-inställningar" i sidfoten öppnar bannern igen.
+    document.addEventListener('click', function (e) {
+      if (e.target.closest('[data-consent-open]')) { e.preventDefault(); box.hidden = false; box.querySelector('button').focus(); }
+    });
+  })();
+</script>
