@@ -73,6 +73,16 @@ Promptgeneratorn, promptboxarna och kopiera-funktionerna i promptbiblioteket är
 
 Innehållet svarar på det svenska användare faktiskt söker efter – nybörjarguider, jämförelser mellan AI-tjänster och förklaringar av begrepp. Ordlistan och artiklarna länkar till varandra, och varje målgrupp har en egen ingångssida. Strukturerad data ger recensionsstjärnor direkt i sökresultaten.
 
+## Ett AI-team på en person
+
+AImonkey drivs av mig och ett team av AI-agenter i Claude. Jag har skrivit ner sajtens regler – ton, språk, struktur, publicering – som instruktioner som varje agent följer, och kopplat Claude till Webflow, Search Console, GA4 och en ändringslogg.
+
+Tolv schemalagda uppgifter sköter det löpande: nyheter, artiklar, mallar och ordlistetermer skrivs som utkast, språket och fakta granskas varje vecka, och en SEO-rapport föreslår och genomför förbättringar. Varje morgon får jag en brief som kontrollerar vad som faktiskt blivit klart och uppdaterar min att göra-lista.
+
+Förbättringarna sker i loopar: varje ändring loggas med hypotes, mått och före-siffror, och utvärderas efter tre veckor. Det som fungerar upprepas, det som inte gör det slutar vi med.
+
+AI:n publicerar aldrig själv. Jag är redaktör och produktägare – Claude är redaktionen.
+
 ## Sju månader in
 
 Sajten har varit live i drygt sju månader. Innehållsbasen arbetar varje dag – och synligheten i Google har ökat med över 3 000 %.
