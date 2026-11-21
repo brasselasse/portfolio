@@ -15,10 +15,10 @@ order: 1
 flagship: true
 chart: [aimonkey-search, aimonkey-ai]
 stats:
-  - { value: "56", label: "artiklar och nyheter" }
-  - { value: "40", label: "ai-mallar" }
-  - { value: "264", label: "prompter i biblioteket" }
-  - { value: "144", label: "förklarade ai-termer" }
+  - { value: "400+", label: "prompter i biblioteket" }
+  - { value: "50+", label: "ai-mallar" }
+  - { value: "17", label: "färdiga flöden" }
+  - { value: "165", label: "förklarade ai-termer" }
 ---
 
 ## Två luckor på svenska
@@ -40,7 +40,7 @@ AImonkey samlar allt på ett ställe, sorterat efter vem du är och vad du vill 
 - **Målgruppssidor** för nybörjare, marknadsföring, produktivitet, skapande och småföretag.
 - **Nyhetsbrev** med det senaste om AI.
 
-![Promptgeneratorn på AImonkey: välj att bygga en prompt från scratch eller utgå från en mall](/img/aimonkey-promptgenerator.webp)
+![Promptgeneratorn på AImonkey: skriv eller prata in vad du vill ha hjälp med, eller välj ett exempel, så bygger apan prompten i tre steg](/img/aimonkey-promptgenerator.webp)
 
 ## Promptgeneratorn – navet i sajten
 
@@ -51,7 +51,7 @@ Allt på AImonkey kretsar kring prompter. Tanken är enkel: de flesta får medio
 3. **Underlag** – namn, siffror och text som AI:n behöver i stället för att gissa.
 4. **Riktlinjer** – format, längd och regler för svaret.
 
-Användaren svarar på fyra korta steg, och generatorn sätter ihop en färdig prompt att kopiera direkt in i ChatGPT, Claude eller Gemini. Det tar under en minut, är gratis och kräver ingen inloggning.
+Användaren skriver, pratar in eller väljer ett exempel på vad hen vill ha hjälp med – som om hen förklarade för en kollega. Efter ett valfritt steg för finjustering sätter generatorn ihop en färdig prompt att kopiera direkt in i ChatGPT, Claude eller Gemini. Det tar under en minut, är gratis och kräver ingen inloggning.
 
 Generatorn står inte för sig själv. I artiklarna och i alla mallar ligger prompter i egna boxar, och med ett knapptryck öppnas prompten i generatorn för att anpassas. Läsaren går alltså från att läsa om ett problem till att ha en egen prompt som löser det – utan att lämna sajten.
 
