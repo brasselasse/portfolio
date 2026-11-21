@@ -59,7 +59,11 @@ Generatorn står inte för sig själv. I artiklarna och i alla mallar ligger pro
 
 Varumärket bygger på bilden av AI som en djungel och apan som den som visar vägen. Tonen är enkel och uppmuntrande – ”från noll till koll” – för att sänka tröskeln för den som aldrig använt AI.
 
-<span class="todo">[Beskriv färger, typografi och hur apan används]</span>
+Apan är en blå, fluffig 3D-figur med stora bruna ögon och en gul-grön neonkontur runt ansiktet – söt och pedagogisk snarare än realistisk. Konturen är nyckeln till hela paletten: djupt marinblått, grönt och solgult, där övergången från gult till grönt markerar det viktigaste på sidan, som ”AI-djungeln” och ”Promptgeneratorn”. Bakgrunderna är ljusa och luftiga, så att apan och innehållet får ta plats.
+
+Rubrikerna är satta i Space Grotesk, som har en lätt teknisk känsla utan att bli kall, och brödtexten i Sora för läsbarhet på skärm. Rundade kort, pillerformade knappar och etiketter gör gränssnittet mjukt och inbjudande.
+
+Apan är mer än en logotyp. Den syns i en egen bild till varje artikel, alltid i samma stil tack vare fasta bildprompter, och den har en egen röst: i rutan ”Apan tycker” ger den varje artikel och mall en kort, personlig kommentar.
 
 ![AImonkeys sida AI för nybörjare med apan som guide och illustrerade element](/img/aimonkey-nyborjare.webp)
 
