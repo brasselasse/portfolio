@@ -8,8 +8,8 @@ const hasPhone = SITE.phone && !SITE.phone.startsWith('[');
 <section class="wrap contact" id="kontakt">
   <span class="lbl" style="grid-column:1 / -1">{number}<span class="sig">|</span> kontakt</span>
   <div class="a">
-    <h2>Behöver du en ny sajt?</h2>
-    <p class="lead">Boka ett kostnadsfritt samtal på 30 minuter. Jag svarar inom 24 timmar på vardagar.</p>
+    <h2>Hör av dig.</h2>
+    <p class="lead">Vill du prata om ett projekt, ett jobb eller AImonkey – eller bara säga hej? Skriv några rader, så hör jag av mig.</p>
     <div class="contact-list">
       {hasEmail ? <a href={`mailto:${SITE.email}`}>{SITE.email}</a> : <span class="todo" style="color:#121212">[e-postadress]</span>}
       {hasPhone && <a href={`tel:${SITE.phone.replace(/\s/g, '')}`}>{SITE.phone}</a>}
