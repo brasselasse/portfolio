@@ -15,7 +15,7 @@ interface Props {
   title?: string;
   description?: string;
   image?: string;
-  current?: 'case' | 'tjanster' | 'om';
+  current?: 'case' | 'tjanster' | 'om' | 'blogg';
   jsonLd?: Record<string, unknown> | Record<string, unknown>[]; // strukturerad data (schema.org)
 }
 const { title, description = SITE.description, image = SITE.image, current, jsonLd } = Astro.props;

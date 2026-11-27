@@ -1,0 +1,72 @@
+---
+import Base from '../../layouts/Base.astro';
+import { posts, formatDate, readingTime } from '../../lib/posts';
+import { cases } from '../../lib/cases';
+import { url } from '../../lib/url';
+import { SITE } from '../../config';
+
+export function getStaticPaths() {
+  return posts.map((p) => ({ params: { slug: p.slug } }));
+}
+
+const { slug } = Astro.params;
+const post = posts.find((p) => p.slug === slug)!;
+const { data, Content } = post;
+const related = data.case ? cases.find((c) => c.slug === data.case) : undefined;
+const pageUrl = new URL(url(`/blogg/${slug}/`), Astro.site).href;
+const image = data.cover ? new URL(url(data.cover), Astro.site).href : undefined;
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: data.title,
+  description: data.description,
+  url: pageUrl,
+  mainEntityOfPage: pageUrl,
+  datePublished: data.date,
+  dateModified: data.updated ?? data.date,
+  inLanguage: 'sv',
+  ...(image ? { image } : {}),
+  ...(data.tags ? { keywords: data.tags.join(', ') } : {}),
+  author: { '@type': 'Person', name: SITE.name, url: new URL(url('/'), Astro.site).href },
+  publisher: { '@type': 'Person', name: SITE.name },
+};
+const mins = readingTime(slug!);
+---
+<Base title={data.seoTitle ?? data.title} description={data.description} image={related ? `/img/og/${related.slug}.jpg` : undefined} current="blogg" jsonLd={jsonLd}>
+  <article>
+    <section class="wrap case-hero">
+      <nav class="crumb" aria-label="Brödsmulor">
+        <a href={url('/blogg/')}>blogg</a> <span class="sig">|</span> <time datetime={data.date}>{formatDate(data.date)}</time> <span class="sig">|</span> {mins} min läsning
+      </nav>
+      <h1>{data.title}</h1>
+      <p class="lead">{data.lead}</p>
+      <p class="byline lbl">av {SITE.name.toLowerCase()} <span class="sig">|</span> {SITE.role.toLowerCase()}</p>
+    </section>
+
+    {data.cover && (
+      <section class="wrap sec">
+        <img class="cover" src={url(data.cover)} alt={data.coverAlt ?? ''} width="1600" height="1000" />
+      </section>
+    )}
+
+    <section class="wrap sec">
+      <div class="prose post">
+        <Content />
+      </div>
+    </section>
+  </article>
+
+  <section slot="dark" class="wrap next-cta">
+    <div class="a">
+      <span class="lbl">nästa steg</span>
+      <h2>Funderar du på en liknande lösning?</h2>
+      <p class="lead" style="color:var(--d-muted)">Berätta vad du behöver, så tar vi ett första samtal – utan kostnad.</p>
+    </div>
+    <div class="b">
+      <a href={url('/#kontakt')} class="btn btn-p">Hör av dig →</a>
+      {related && (
+        <a href={url(`/case/${related.slug}/`)} class="tlink" style="justify-content:center"><span>Läs caset om {related.data.title}</span> <span class="sig">|</span> →</a>
+      )}
+    </div>
+  </section>
+</Base>

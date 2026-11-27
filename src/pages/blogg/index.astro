@@ -1,0 +1,26 @@
+---
+import Base from '../../layouts/Base.astro';
+import { posts, formatDate, readingTime } from '../../lib/posts';
+import { url } from '../../lib/url';
+---
+<Base title="Blogg" description="Lars Dahlberg skriver om webbdesign, Webflow, SEO och hur han bygger och driver sajter med AI." current="blogg">
+  <section class="wrap case-hero">
+    <nav class="crumb" aria-label="Brödsmulor"><a href={url('/')}>start</a> <span class="sig">|</span> blogg</nav>
+    <h1>Blogg</h1>
+    <p class="lead">Om webbdesign, Webflow, SEO – och hur jag bygger och driver sajter tillsammans med AI.</p>
+  </section>
+  <section class="wrap sec">
+    <ul class="post-list">
+      {posts.map((p) => (
+        <li>
+          <a href={url(`/blogg/${p.slug}/`)}>
+            <span class="lbl"><time datetime={p.data.date}>{formatDate(p.data.date)}</time> <span class="sig">|</span> {readingTime(p.slug)} min läsning</span>
+            <h2>{p.data.title}</h2>
+            <p>{p.data.description}</p>
+            <span class="tlink"><span>Läs inlägget</span> <span class="sig">|</span> →</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

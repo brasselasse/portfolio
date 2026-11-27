@@ -15,10 +15,10 @@ order: 1
 flagship: true
 chart: [aimonkey-search, aimonkey-ai]
 stats:
-  - { value: "400+", label: "prompter i biblioteket" }
-  - { value: "50+", label: "ai-mallar" }
+  - { value: "490+", label: "prompter i biblioteket" }
+  - { value: "60+", label: "ai-mallar" }
   - { value: "17", label: "färdiga flöden" }
-  - { value: "165", label: "förklarade ai-termer" }
+  - { value: "200+", label: "förklarade ai-termer" }
 ---
 
 ## Två luckor på svenska
@@ -32,11 +32,11 @@ Den andra luckan var själva användningen: många vet inte hur man formulerar e
 AImonkey samlar allt på ett ställe, sorterat efter vem du är och vad du vill göra. Apan är guiden genom djungeln – lekfull, men med innehåll som går att använda direkt.
 
 - **Promptgeneratorn** hjälper användaren att bygga en bra prompt steg för steg.
-- **Promptbiblioteket** har över 400 färdiga prompter att kopiera för vardagliga uppgifter, och 17 färdiga flöden för större uppgifter.
-- **AI-mallar** – över 50 guidade upplägg, till exempel landningssidor, KPI-rapporter och AI-policyer.
+- **Promptbiblioteket** har närmare 500 färdiga prompter att kopiera för vardagliga uppgifter, och 17 färdiga flöden för större uppgifter.
+- **AI-mallar** – över 60 guidade upplägg, till exempel landningssidor, KPI-rapporter och AI-policyer.
 - **Artiklar och nyheter** – nybörjarguider, jämförelser och veckans AI-nyheter.
 - **Verktygsguider** för ChatGPT, Claude, Gemini, Grok med flera.
-- **AI-termer** – en svensk ordlista med 165 förklarade begrepp.
+- **AI-termer** – en svensk ordlista med drygt 200 förklarade begrepp.
 - **Målgruppssidor** för nybörjare, marknadsföring, produktivitet, skapande och småföretag.
 - **Nyhetsbrev** med det senaste om AI.
 
@@ -72,6 +72,8 @@ Apan är mer än en logotyp. Den syns i en egen bild till varje artikel, alltid 
 Sajten är byggd i Webflow med ett sammankopplat CMS: artiklar, mallar, prompter, verktyg, termer och kategorier är egna samlingar som länkar till varandra. Varje ny artikel eller mall hamnar automatiskt på rätt målgruppssidor.
 
 Promptgeneratorn, promptboxarna och kopiera-funktionerna i promptbiblioteket är byggda med egen kod ovanpå Webflow. Varje promptbox bär med sig sin prompt till generatorn, så att samma prompt kan användas som den är eller anpassas steg för steg.
+
+Hur innehållsmodellen, CMS:et och skripten hänger ihop går jag igenom i blogginlägget [Så byggde jag AIMonkey](/blogg/sa-byggde-jag-aimonkey/).
 
 ## Byggd för att hittas
 
